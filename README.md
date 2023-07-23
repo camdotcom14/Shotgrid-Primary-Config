@@ -1,12 +1,3 @@
-[![Build Status](https://dev.azure.com/shotgun-ecosystem/Toolkit/_apis/build/status/Configs/tk-config-default2?branchName=master)](https://dev.azure.com/shotgun-ecosystem/Toolkit/_build/latest?definitionId=49&branchName=master)
+Hello there! Welcome to the Baked Studios ShotGrid ToolKit Config. It's heavily based on ShotGrid's default config so feel free to read up on documentation here:
 
--------------------------------------------------------------------------
-The ShotGrid Pipeline Toolkit Default Configuration
--------------------------------------------------------------------------
-
-Welcome to the ShotGrid Pipeline Toolkit default configuration!
-
-For more information, go to the following url:
-https://developer.shotgridsoftware.com/8085533c/?title=ShotGrid+Integrations+Admin+Guide
-
--------------------------------------------------------------------------
+https://developer.shotgridsoftware.com/e95205a8/#:~:text=Toolkit%20is%20a%20Pipeline%20Toolkit,on%20disk%20is%20nicely%20structured.
