@@ -181,9 +181,9 @@ paths:
     #
     # These don't require the standard formatting (with definition and root_name) because they
     # will be set within each template that uses the alias.
-    shot_root: sequences/{Sequence}/{Shot}/{Step}
-    asset_root: assets/{sg_asset_type}/{Asset}/{Step}
-    sequence_root: sequences/{Sequence}
+    shot_root: 1_SEQUENCES/{Sequence}/{Shot}/{Step}
+    asset_root: 2_ASSETS/{sg_asset_type}/{Asset}/{Step}
+    sequence_root: 1_SEQUENCES/{Sequence}
 
 
     ##########################################################################################
@@ -223,19 +223,19 @@ paths:
     #
 
     flame_segment_clip:
-        definition: 'sequences/{Sequence}/{Shot}/finishing/clip/sources/{segment_name}.clip'
+        definition: '1_SEQUENCES/{Sequence}/{Shot}/finishing/clip/sources/{segment_name}.clip'
     flame_shot_clip:
-        definition: 'sequences/{Sequence}/{Shot}/finishing/clip/{Shot}.clip'
+        definition: '1_SEQUENCES/{Sequence}/{Shot}/finishing/clip/{Shot}.clip'
     flame_shot_batch:
-        definition: 'sequences/{Sequence}/{Shot}/finishing/batch/{Shot}.v{version}.batch'
+        definition: '1_SEQUENCES/{Sequence}/{Shot}/finishing/batch/{Shot}.v{version}.batch'
     flame_shot_render_dpx:
-        definition: 'sequences/{Sequence}/{Shot}/finishing/renders/{segment_name}_v{version}/{Shot}_{segment_name}_v{version}.{flame.frame}.dpx'
+        definition: '1_SEQUENCES/{Sequence}/{Shot}/finishing/renders/{segment_name}_v{version}/{Shot}_{segment_name}_v{version}.{flame.frame}.dpx'
     flame_shot_render_exr:
-        definition: 'sequences/{Sequence}/{Shot}/finishing/renders/{segment_name}_v{version}/{Shot}_{segment_name}_v{version}.{flame.frame}.exr'
+        definition: '1_SEQUENCES/{Sequence}/{Shot}/finishing/renders/{segment_name}_v{version}/{Shot}_{segment_name}_v{version}.{flame.frame}.exr'
     flame_shot_comp_dpx:
-        definition: 'sequences/{Sequence}/{Shot}/finishing/comp/{segment_name}_v{version}/{Shot}_{segment_name}_v{version}.{flame.frame}.dpx'
+        definition: '1_SEQUENCES/{Sequence}/{Shot}/finishing/comp/{segment_name}_v{version}/{Shot}_{segment_name}_v{version}.{flame.frame}.dpx'
     flame_shot_comp_exr:
-        definition: 'sequences/{Sequence}/{Shot}/finishing/comp/{segment_name}_v{version}/{Shot}_{segment_name}_v{version}.{flame.frame}.exr'
+        definition: '1_SEQUENCES/{Sequence}/{Shot}/finishing/comp/{segment_name}_v{version}/{Shot}_{segment_name}_v{version}.{flame.frame}.exr'
 
     #
     # Photoshop
@@ -427,9 +427,9 @@ paths:
 
     # export of shot asset data from hiero
     hiero_plate_path:
-        definition: 'sequences/{Sequence}/{Shot}/editorial/{YYYY}_{MM}_{DD}/plates/{project}_{Shot}.mov'
+        definition: '1_SEQUENCES/{Sequence}/{Shot}/editorial/{YYYY}_{MM}_{DD}/plates/{project}_{Shot}.mov'
     hiero_render_path:
-        definition: 'sequences/{Sequence}/{Shot}/editorial/{YYYY}_{MM}_{DD}/renders/{project}_{Shot}.{SEQ}.dpx'
+        definition: '1_SEQUENCES/{Sequence}/{Shot}/editorial/{YYYY}_{MM}_{DD}/renders/{project}_{Shot}.{SEQ}.dpx'
 
     ##########################################################################################
     # Asset pipeline
