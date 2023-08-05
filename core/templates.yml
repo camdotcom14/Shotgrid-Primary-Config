@@ -397,27 +397,27 @@ paths:
         definition: '@shot_root/4_PUBLISH/nuke'
     # The location of WIP script files
     nuke_shot_work:
-        definition: '@shot_root/1_WORK/nuke/{name}.v{version}.nk'
+        definition: '@shot_root/1_WORK/nuke/{Shot}.v{version}.nk'
     # The location of backups of WIP files
     nuke_shot_snapshot:
-        definition: '@shot_root/1_WORK/nuke/snapshots/{name}.v{version}.{timestamp}.nk'
+        definition: '@shot_root/1_WORK/nuke/snapshots/{Shot}.v{version}.{timestamp}.nk'
     # The location of published nuke script files
     nuke_shot_publish:
-        definition: '@shot_root/4_PUBLISH/nuke/{name}.v{version}.nk'
+        definition: '@shot_root/4_PUBLISH/nuke/{Shot}.v{version}.nk'
     # write node outputs
     nuke_shot_render_mono_dpx:
-        definition: '@shot_root/1_WORK/images/{name}/v{version}/{width}x{height}/{Shot}_{name}_{nuke.output}_v{version}.{SEQ}.dpx'
+        definition: '@shot_root/1_WORK/RENDERS/v{version}/{Shot}_BKD_v{version}/{Shot}_BKD_v{version}.{SEQ}.dpx'
     nuke_shot_render_pub_mono_dpx:
-        definition: '@shot_root/4_PUBLISH/elements/{name}/v{version}/{width}x{height}/{Shot}_{name}_{nuke.output}_v{version}.{SEQ}.dpx'
+        definition: '@shot_root/4_PUBLISH/RENDERS/v{version}/{Shot}_BKD_v{version}/{Shot}_BKD_v{version}.{SEQ}.dpx'
     nuke_shot_render_stereo:
-        definition: '@shot_root/1_WORK/images/{name}/v{version}/{width}x{height}/{Shot}_{name}_{nuke.output}_v{version}.{SEQ}.exr'
+        definition: '@shot_root/1_WORK/RENDERS/v{version}/{Shot}_BKD_v{version}/{Shot}_BKD_v{version}.{SEQ}.exr'
     nuke_shot_render_pub_stereo:
-        definition: '@shot_root/4_PUBLISH/elements/{name}/v{version}/{width}x{height}/{Shot}_{name}_{nuke.output}_v{version}.{SEQ}.exr'
+        definition: '@shot_root/4_PUBLISH/RENDERS/v{version}/{Shot}_BKD_v{version}/{Shot}_BKD_v{version}.{SEQ}.exr'
     # review output
     shot_quicktime_quick:
-        definition: '@shot_root/review/quickdaily/{Shot}_{name}_{iteration}.mov'
+        definition: '@shot_root/3_REVIEW/QUICKDAILY/{Shot}_BKD_{iteration}.mov'
     nuke_shot_render_movie:
-        definition: '@shot_root/review/{Shot}_{name}_{nuke.output}_v{version}.mov'
+        definition: '@shot_root/3_REVIEW/{Shot}_BKD_v{version}.mov'
 
     #
     # Hiero
