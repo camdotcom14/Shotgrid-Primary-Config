@@ -204,7 +204,7 @@ paths:
         definition: 'editorial/1_WORK/snapshots/{name}_v{version}_{timestamp}.hrox'
     # The location of published hiero files
     hiero_project_publish:
-        definition: 'editorial/4_PUBLISH{name}_v{version}.hrox'
+        definition: 'editorial/4_PUBLISH/{name}_v{version}.hrox'
     hiero_project_publish_area:
         definition: 'editorial/publish'
 
@@ -251,14 +251,14 @@ paths:
         definition: '@shot_root/1_WORK/photoshop/snapshots/{name}.v{version}.{timestamp}.psd'
     # The location of published files
     shot_publish_area_photoshop:
-        definition: '@shot_root/4_PUBLISHphotoshop'
+        definition: '@shot_root/4_PUBLISH/photoshop'
     photoshop_shot_publish:
-        definition: '@shot_root/4_PUBLISHphotoshop/{name}.v{version}.psd'
+        definition: '@shot_root/4_PUBLISH/photoshop/{name}.v{version}.psd'
     # The location of the published images
     photoshop_shot_png_publish:
-        definition: '@shot_root/4_PUBLISHphotoshop/{name}.v{version}.png'
+        definition: '@shot_root/4_PUBLISH/photoshop/{name}.v{version}.png'
     photoshop_shot_jpg_publish:
-        definition: '@shot_root/4_PUBLISHphotoshop/{name}.v{version}.jpg'
+        definition: '@shot_root/4_PUBLISH/photoshop/{name}.v{version}.jpg'
 
     #
     # After Effects
@@ -274,11 +274,11 @@ paths:
         definition: '@shot_root/1_WORK/afx/snapshots/{name}.v{version}.{timestamp}.aep'
     # The location of published files
     shot_publish_area_aftereffects:
-        definition: '@shot_root/4_PUBLISHafx'
+        definition: '@shot_root/4_PUBLISH/afx'
     aftereffects_shot_publish:
-        definition: '@shot_root/4_PUBLISHafx/{name}.v{version}.aep'
+        definition: '@shot_root/4_PUBLISH/afx/{name}.v{version}.aep'
     aftereffects_shot_render_pub_mono:
-        definition: '@shot_root/4_PUBLISHelements/{name}/v{version}/{width}x{height}/{Shot}_{name}_{afx.comp}_v{version}.{SEQ}.tif'
+        definition: '@shot_root/4_PUBLISH/elements/{name}/v{version}/{width}x{height}/{Shot}_{name}_{afx.comp}_v{version}.{SEQ}.tif'
     # The following template uses {afx.mov.ext} this is a special key, that will be only there
     # in the beta to support different extensions on mac and windows, while using the same
     # output module (Lossless with Alpha)
@@ -295,7 +295,7 @@ paths:
         definition: '@shot_root/1_WORK/maya'
     # define the location of a publish area
     shot_publish_area_maya:
-        definition: '@shot_root/4_PUBLISHmaya'
+        definition: '@shot_root/4_PUBLISH/maya'
     # The location of WIP files
     maya_shot_work:
         definition: '@shot_root/1_WORK/maya/{name}.v{version}.{maya_extension}'
@@ -304,7 +304,7 @@ paths:
         definition: '@shot_root/1_WORK/maya/snapshots/{name}.v{version}.{timestamp}.{maya_extension}'
     # The location of published maya files
     maya_shot_publish:
-        definition: '@shot_root/4_PUBLISHmaya/{name}.v{version}.{maya_extension}'
+        definition: '@shot_root/4_PUBLISH/maya/{name}.v{version}.{maya_extension}'
 
 
     #
@@ -316,7 +316,7 @@ paths:
         definition: '@shot_root/1_WORK/houdini'
     # define the location of a publish area
     shot_publish_area_houdini:
-        definition: '@shot_root/4_PUBLISHhoudini'
+        definition: '@shot_root/4_PUBLISH/houdini'
     # The location of WIP files
     houdini_shot_work:
         definition: '@shot_root/1_WORK/houdini/{name}.v{version}.hip'
@@ -325,7 +325,7 @@ paths:
         definition: '@shot_root/1_WORK/houdini/snapshots/{name}.v{version}.{timestamp}.hip'
     # The location of published houdini files
     houdini_shot_publish:
-        definition: '@shot_root/4_PUBLISHhoudini/{name}.v{version}.hip'
+        definition: '@shot_root/4_PUBLISH/houdini/{name}.v{version}.hip'
     # Alembic caches
     houdini_shot_work_alembic_cache:
         definition: '@shot_root/1_WORK/houdini/cache/alembic/{name}/{houdini.node}/v{version}/{Shot}_{name}_v{version}.abc'
@@ -354,7 +354,7 @@ paths:
         definition: '@shot_root/1_WORK/3dsmax'
     # define the location of a publish area
     shot_publish_area_max:
-        definition: '@shot_root/4_PUBLISH3dsmax'
+        definition: '@shot_root/4_PUBLISH/3dsmax'
     # The location of WIP files
     max_shot_work:
         definition: '@shot_root/1_WORK/3dsmax/{name}.v{version}.max'
@@ -363,7 +363,7 @@ paths:
         definition: '@shot_root/1_WORK/3dsmax/snapshots/{name}.v{version}.{timestamp}.max'
     # The location of published max files
     max_shot_publish:
-        definition: '@shot_root/4_PUBLISH3dsmax/{name}.v{version}.max'
+        definition: '@shot_root/4_PUBLISH/3dsmax/{name}.v{version}.max'
 
 
     #
@@ -375,7 +375,7 @@ paths:
         definition: '@shot_root/1_WORK/mobu'
     # define the location of a publish area
     shot_publish_area_mobu:
-        definition: '@shot_root/4_PUBLISHmobu'
+        definition: '@shot_root/4_PUBLISH/mobu'
     # The location of WIP files
     mobu_shot_work:
         definition: '@shot_root/1_WORK/mobu/{name}.v{version}.fbx'
@@ -384,7 +384,7 @@ paths:
         definition: '@shot_root/1_WORK/mobu/snapshots/{name}.v{version}.{timestamp}.fbx'
     # The location of published mobu files
     mobu_shot_publish:
-        definition: '@shot_root/4_PUBLISHmobu/{name}.v{version}.fbx'
+        definition: '@shot_root/4_PUBLISH/mobu/{name}.v{version}.fbx'
 
 
     #
@@ -396,7 +396,7 @@ paths:
         definition: '@shot_root/1_WORK/nuke'
     # define the location of a publish area
     shot_publish_area_nuke:
-        definition: '@shot_root/4_PUBLISHnuke'
+        definition: '@shot_root/4_PUBLISH/nuke'
     # The location of WIP script files
     nuke_shot_work:
         definition: '@shot_root/1_WORK/nuke/{name}.v{version}.nk'
@@ -405,16 +405,16 @@ paths:
         definition: '@shot_root/1_WORK/nuke/snapshots/{name}.v{version}.{timestamp}.nk'
     # The location of published nuke script files
     nuke_shot_publish:
-        definition: '@shot_root/4_PUBLISHnuke/{name}.v{version}.nk'
+        definition: '@shot_root/4_PUBLISH/nuke/{name}.v{version}.nk'
     # write node outputs
     nuke_shot_render_mono_dpx:
         definition: '@shot_root/1_WORK/images/{name}/v{version}/{width}x{height}/{Shot}_{name}_{nuke.output}_v{version}.{SEQ}.dpx'
     nuke_shot_render_pub_mono_dpx:
-        definition: '@shot_root/4_PUBLISHelements/{name}/v{version}/{width}x{height}/{Shot}_{name}_{nuke.output}_v{version}.{SEQ}.dpx'
+        definition: '@shot_root/4_PUBLISH/elements/{name}/v{version}/{width}x{height}/{Shot}_{name}_{nuke.output}_v{version}.{SEQ}.dpx'
     nuke_shot_render_stereo:
         definition: '@shot_root/1_WORK/images/{name}/v{version}/{width}x{height}/{Shot}_{name}_{nuke.output}_{eye}_v{version}.{SEQ}.exr'
     nuke_shot_render_pub_stereo:
-        definition: '@shot_root/4_PUBLISHelements/{name}/v{version}/{width}x{height}/{Shot}_{name}_{nuke.output}_{eye}_v{version}.{SEQ}.exr'
+        definition: '@shot_root/4_PUBLISH/elements/{name}/v{version}/{width}x{height}/{Shot}_{name}_{nuke.output}_{eye}_v{version}.{SEQ}.exr'
     # review output
     shot_quicktime_quick:
         definition: '@shot_root/review/quickdaily/{Shot}_{name}_{iteration}.mov'
@@ -440,7 +440,7 @@ paths:
     #
 
     asset_alembic_cache:
-        definition: '@asset_root/4_PUBLISHcaches/{name}.v{version}.abc'
+        definition: '@asset_root/4_PUBLISH/caches/{name}.v{version}.abc'
 
 
     #
@@ -457,14 +457,14 @@ paths:
         definition: '@asset_root/1_WORK/photoshop/snapshots/{name}.v{version}.{timestamp}.psd'
     # The location of published files
     asset_publish_area_photoshop:
-        definition: '@asset_root/4_PUBLISHphotoshop'
+        definition: '@asset_root/4_PUBLISH/photoshop'
     photoshop_asset_publish:
-        definition: '@asset_root/4_PUBLISHphotoshop/{name}.v{version}.psd'
+        definition: '@asset_root/4_PUBLISH/photoshop/{name}.v{version}.psd'
     # The location of the published images
     photoshop_asset_png_publish:
-        definition: '@asset_root/4_PUBLISHphotoshop/{name}.v{version}.png'
+        definition: '@asset_root/4_PUBLISH/photoshop/{name}.v{version}.png'
     photoshop_asset_jpg_publish:
-        definition: '@asset_root/4_PUBLISHphotoshop/{name}.v{version}.jpg'
+        definition: '@asset_root/4_PUBLISH/photoshop/{name}.v{version}.jpg'
     #
     # after effects
     #
@@ -479,11 +479,11 @@ paths:
         definition: '@asset_root/1_WORK/afx/snapshots/{name}.v{version}.{timestamp}.aep'
     # The location of published files
     asset_publish_area_aftereffects:
-        definition: '@asset_root/4_PUBLISHafx'
+        definition: '@asset_root/4_PUBLISH/afx'
     aftereffects_asset_publish:
-        definition: '@asset_root/4_PUBLISHafx/{name}.v{version}.aep'
+        definition: '@asset_root/4_PUBLISH/afx/{name}.v{version}.aep'
     aftereffects_asset_render_pub_mono:
-        definition: '@asset_root/4_PUBLISHelements/{name}/v{version}/{width}x{height}/{Asset}_{name}_{afx.comp}_v{version}.{SEQ}.tif'
+        definition: '@asset_root/4_PUBLISH/elements/{name}/v{version}/{width}x{height}/{Asset}_{name}_{afx.comp}_v{version}.{SEQ}.tif'
     # The following template uses {afx.mov.ext} this is a special key, that will be only there
     # in the beta to support different extensions on mac and windows, while using the same
     # output module (Lossless with Alpha)
@@ -495,7 +495,7 @@ paths:
     # Mari
     #
     asset_mari_texture_tif:
-        definition: '@asset_root/4_PUBLISHmari/{name}_{mari.channel}[_{mari.layer}].v{version}.{UDIM}.tif'
+        definition: '@asset_root/4_PUBLISH/mari/{name}_{mari.channel}[_{mari.layer}].v{version}.{UDIM}.tif'
 
     #
     # Maya
@@ -506,7 +506,7 @@ paths:
         definition: '@asset_root/1_WORK/maya'
     # define the location of a publish area
     asset_publish_area_maya:
-        definition: '@asset_root/4_PUBLISHmaya'
+        definition: '@asset_root/4_PUBLISH/maya'
     # The location of WIP files
     maya_asset_work:
         definition: '@asset_root/1_WORK/maya/{name}.v{version}.{maya_extension}'
@@ -515,7 +515,7 @@ paths:
         definition: '@asset_root/1_WORK/maya/snapshots/{name}.v{version}.{timestamp}.{maya_extension}'
     # The location of published maya files
     maya_asset_publish:
-        definition: '@asset_root/4_PUBLISHmaya/{name}.v{version}.{maya_extension}'
+        definition: '@asset_root/4_PUBLISH/maya/{name}.v{version}.{maya_extension}'
 
 
     #
@@ -527,7 +527,7 @@ paths:
         definition: '@asset_root/1_WORK/houdini'
     # define the location of a publish area
     asset_publish_area_houdini:
-        definition: '@asset_root/4_PUBLISHhoudini'
+        definition: '@asset_root/4_PUBLISH/houdini'
     # The location of WIP files
     houdini_asset_work:
         definition: '@asset_root/1_WORK/houdini/{name}.v{version}.hip'
@@ -536,7 +536,7 @@ paths:
         definition: '@asset_root/1_WORK/houdini/snapshots/{name}.v{version}.{timestamp}.hip'
     # The location of published houdini files
     houdini_asset_publish:
-        definition: '@asset_root/4_PUBLISHhoudini/{name}.v{version}.hip'
+        definition: '@asset_root/4_PUBLISH/houdini/{name}.v{version}.hip'
     # Alembic caches
     houdini_asset_work_alembic_cache:
         definition: '@asset_root/1_WORK/houdini/cache/alembic/{name}/{houdini.node}/v{version}/{Asset}_{name}_v{version}.abc'
@@ -565,7 +565,7 @@ paths:
         definition: '@asset_root/1_WORK/3dsmax'
     # define the location of a publish area
     asset_publish_area_max:
-        definition: '@asset_root/4_PUBLISH3dsmax'
+        definition: '@asset_root/4_PUBLISH/3dsmax'
     # The location of WIP files
     max_asset_work:
         definition: '@asset_root/1_WORK/3dsmax/{name}.v{version}.max'
@@ -574,7 +574,7 @@ paths:
         definition: '@asset_root/1_WORK/3dsmax/snapshots/{name}.v{version}.{timestamp}.max'
     # The location of published max files
     max_asset_publish:
-        definition: '@asset_root/4_PUBLISH3dsmax/{name}.v{version}.max'
+        definition: '@asset_root/4_PUBLISH/3dsmax/{name}.v{version}.max'
 
 
     #
@@ -586,7 +586,7 @@ paths:
         definition: '@asset_root/1_WORK/mobu'
     # define the location of a publish area
     asset_publish_area_mobu:
-        definition: '@asset_root/4_PUBLISHmobu'
+        definition: '@asset_root/4_PUBLISH/mobu'
     # The location of WIP files
     mobu_asset_work:
         definition: '@asset_root/1_WORK/mobu/{name}.v{version}.fbx'
@@ -595,7 +595,7 @@ paths:
         definition: '@asset_root/1_WORK/mobu/snapshots/{name}.v{version}.{timestamp}.fbx'
     # The location of published Motionbuilder files
     mobu_asset_publish:
-        definition: '@asset_root/4_PUBLISHmobu/{name}.v{version}.fbx'
+        definition: '@asset_root/4_PUBLISH/mobu/{name}.v{version}.fbx'
 
 
     #
@@ -612,7 +612,7 @@ paths:
     nuke_asset_render:
         definition: '@asset_root/1_WORK/images/{name}/v{version}/{width}x{height}/{Asset}_{name}_{nuke.output}_v{version}.{SEQ}.exr'
     nuke_asset_render_pub:
-        definition: '@asset_root/4_PUBLISHelements/{name}/v{version}/{width}x{height}/{Asset}_{name}_{nuke.output}_v{version}.{SEQ}.exr'
+        definition: '@asset_root/4_PUBLISH/elements/{name}/v{version}/{width}x{height}/{Asset}_{name}_{nuke.output}_v{version}.{SEQ}.exr'
     # review output
     nuke_asset_render_movie:
         definition: '@asset_root/review/{Asset}_{name}_{nuke.output}_v{version}.mov'
@@ -626,7 +626,7 @@ paths:
         definition: '@asset_root/1_WORK/nuke/snapshots/{name}.v{version}.{timestamp}.nk'
     # The location of published nuke script files
     nuke_asset_publish:
-        definition: '@asset_root/4_PUBLISHnuke/{name}.v{version}.nk'
+        definition: '@asset_root/4_PUBLISH/nuke/{name}.v{version}.nk'
 
     #
     # Alias
@@ -637,7 +637,7 @@ paths:
         definition: '@asset_root/1_WORK/alias'
     # define the location of a publish area
     asset_publish_area_alias:
-        definition: '@asset_root/4_PUBLISHalias'
+        definition: '@asset_root/4_PUBLISH/alias'
     # The location of WIP files
     alias_asset_work:
         definition: '@asset_root/1_WORK/alias/{name}.v{version}.wire'
@@ -646,23 +646,23 @@ paths:
         definition: '@asset_root/1_WORK/alias/snapshots/{name}.v{version}.{timestamp}.wire'
     # The location of published Alias files
     alias_asset_publish:
-        definition: '@asset_root/4_PUBLISHalias/{name}.v{version}.wire'
+        definition: '@asset_root/4_PUBLISH/alias/{name}.v{version}.wire'
 
     # Alias translations
 
     # The location of the reference created on the fly by Alias when importing a file as ref
     alias_asset_reference_publish:
-        definition: '@asset_root/4_PUBLISHalias/translations/{name}_{alias.extension}.v{version}.wref'
+        definition: '@asset_root/4_PUBLISH/alias/translations/{name}_{alias.extension}.v{version}.wref'
     alias_asset_igs_publish:
-        definition: '@asset_root/4_PUBLISHalias/translations/{name}.v{version}.igs'
+        definition: '@asset_root/4_PUBLISH/alias/translations/{name}.v{version}.igs'
     alias_asset_catpart_publish:
-        definition: '@asset_root/4_PUBLISHalias/translations/{name}.v{version}.CATPart'
+        definition: '@asset_root/4_PUBLISH/alias/translations/{name}.v{version}.CATPart'
     alias_asset_jt_publish:
-        definition: '@asset_root/4_PUBLISHalias/translations/{name}.v{version}.jt'
+        definition: '@asset_root/4_PUBLISH/alias/translations/{name}.v{version}.jt'
     alias_asset_stp_publish:
-        definition: '@asset_root/4_PUBLISHalias/translations/{name}.v{version}.stp'
+        definition: '@asset_root/4_PUBLISH/alias/translations/{name}.v{version}.stp'
     alias_asset_wref_publish:
-        definition: '@asset_root/4_PUBLISHalias/translations/{name}.v{version}.wref'
+        definition: '@asset_root/4_PUBLISH/alias/translations/{name}.v{version}.wref'
 
     #
     # VRED
@@ -673,7 +673,7 @@ paths:
         definition: '@asset_root/1_WORK/vred'
     # define the location of a publish area
     asset_publish_area_vred:
-        definition: '@asset_root/4_PUBLISHvred'
+        definition: '@asset_root/4_PUBLISH/vred'
     # The location of WIP files
     vred_asset_work:
         definition: '@asset_root/1_WORK/vred/{name}.v{version}.vpb'
@@ -682,7 +682,7 @@ paths:
         definition: '@asset_root/1_WORK/vred/snapshots/{name}.v{version}.{timestamp}.vpb'
     # The location of published VRED files
     vred_asset_publish:
-        definition: '@asset_root/4_PUBLISHvred/{name}.v{version}.vpb'
+        definition: '@asset_root/4_PUBLISH/vred/{name}.v{version}.vpb'
 
     # define the location of the WIP render images
     vred_asset_render_work:
@@ -694,11 +694,11 @@ paths:
 
     # define the location of the published render images
     vred_asset_render_publish:
-        definition: '@asset_root/4_PUBLISHimages/{name}/v{version}/{Asset}_{name}_v{version}[-{vred.render_pass}].{vred.render_extension}'
+        definition: '@asset_root/4_PUBLISH/images/{name}/v{version}/{Asset}_{name}_v{version}[-{vred.render_pass}].{vred.render_extension}'
 
     # define the location of the published renderings for an image sequence
     vred_asset_render_sequence_publish:
-        definition: '@asset_root/4_PUBLISHimages/{name}/v{version}/{Asset}_{name}_v{version}[-{vred.render_pass}]-{vred.frame}.{vred.render_extension}'
+        definition: '@asset_root/4_PUBLISH/images/{name}/v{version}/{Asset}_{name}_v{version}[-{vred.render_pass}]-{vred.frame}.{vred.render_extension}'
 
 
 #
