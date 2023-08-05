@@ -30,6 +30,7 @@ includes:
 # and these 'transit' areas can be project, shot, or sequence level.
 
 settings.tk-multi-workfiles2: &settings_tk-multi-workfiles2
+  allow_task_creation: false
   entities:
   - caption: Assets
     entity_type: Asset
@@ -233,6 +234,7 @@ settings.tk-multi-workfiles2.maya.asset_step:
   template_publish_area: asset_publish_area_maya
   template_work: maya_asset_work
   template_work_area: asset_work_area_maya
+  allow_task_creation: false
   entities:
   - caption: Assets
     entity_type: Asset
@@ -260,6 +262,7 @@ settings.tk-multi-workfiles2.maya.shot_step:
   template_publish_area: shot_publish_area_maya
   template_work: maya_shot_work
   template_work_area: shot_work_area_maya
+  allow_task_creation: false
   entities:
   - caption: Assets
     entity_type: Asset
@@ -291,6 +294,7 @@ settings.tk-multi-workfiles2.nuke.asset_step:
   template_publish_area: asset_publish_area_nuke
   template_work: nuke_asset_work
   template_work_area: asset_work_area_nuke
+  allow_task_creation: false
   entities:
   - caption: Assets
     entity_type: Asset
@@ -318,6 +322,7 @@ settings.tk-multi-workfiles2.nuke.shot_step:
   template_publish_area: shot_publish_area_nuke
   template_work: nuke_shot_work
   template_work_area: shot_work_area_nuke
+  allow_task_creation: false
   entities:
   - caption: Assets
     entity_type: Asset
