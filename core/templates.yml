@@ -415,9 +415,9 @@ paths:
         definition: '@shot_root/4_PUBLISH/renders/v{version}/{Shot}_BKD_v{version}/{Shot}_BKD_v{version}.{SEQ}.exr'
     # review output
     shot_quicktime_quick:
-        definition: '@shot_root/review/quickdaily/{Shot}_{name}_{iteration}.mov'
+        definition: '@shot_root/review/quickdaily/{Shot}_BKD_{iteration}.mov'
     nuke_shot_render_movie:
-        definition: '@shot_root/review/{Shot}_{name}_BKD_v{version}.mov'
+        definition: '@shot_root/3_REVIEW/{Shot}_BKD_v{version}.mov'
 
     #
     # Hiero
