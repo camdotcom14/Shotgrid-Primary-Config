@@ -410,14 +410,14 @@ paths:
     nuke_shot_render_pub_mono_dpx:
         definition: '@shot_root/4_PUBLISH/elements/{name}/v{version}/{width}x{height}/{Shot}_{name}_{nuke.output}_v{version}.{SEQ}.dpx'
     nuke_shot_render_stereo:
-        definition: '@shot_root/1_WORK/images/{name}/v{version}/{width}x{height}/{Shot}_{name}_{nuke.output}_v{version}.{SEQ}.exr'
+        definition: '@shot_root/1_WORK/images/{name}/v{version}/{Shot}_{name}_BKD_v{version}/{Shot}_{name}_BKD_v{version}.{SEQ}.exr'
     nuke_shot_render_pub_stereo:
-        definition: '@shot_root/4_PUBLISH/elements/{name}/v{version}/{width}x{height}/{Shot}_{name}_{nuke.output}_v{version}.{SEQ}.exr'
+        definition: '@shot_root/4_PUBLISH/elements/{name}/v{version}/{Shot}_{name}_BKD_v{version}/{Shot}_{name}_BKD_v{version}.{SEQ}.exr'
     # review output
     shot_quicktime_quick:
         definition: '@shot_root/review/quickdaily/{Shot}_{name}_{iteration}.mov'
     nuke_shot_render_movie:
-        definition: '@shot_root/review/{Shot}_{name}_{nuke.output}_v{version}.mov'
+        definition: '@shot_root/review/{Shot}_{name}_BKD_v{version}.mov'
 
     #
     # Hiero
