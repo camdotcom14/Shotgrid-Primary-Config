@@ -406,16 +406,16 @@ paths:
         definition: '@shot_root/4_PUBLISH/nuke/{Shot}.v{version}.nk'
     # write node outputs
     nuke_shot_render_mono_dpx:
-        definition: '@shot_root/1_WORK/renders/v{version}/{Shot}_BKD_v{version}/{Shot}_BKD_v{version}.{SEQ}.dpx'
+        definition: '@shot_root/1_WORK/RENDERS/v{version}/{Shot}_BKD_v{version}/{Shot}_BKD_v{version}.{SEQ}.dpx'
     nuke_shot_render_pub_mono_dpx:
-        definition: '@shot_root/4_PUBLISH/renders/v{version}/{Shot}_BKD_v{version}/{Shot}_BKD_v{version}.{SEQ}.dpx'
+        definition: '@shot_root/4_PUBLISH/RENDERS/v{version}/{Shot}_BKD_v{version}/{Shot}_BKD_v{version}.{SEQ}.dpx'
     nuke_shot_render_stereo:
-        definition: '@shot_root/1_WORK/renders/v{version}/{Shot}_BKD_v{version}/{Shot}_BKD_v{version}.{SEQ}.exr'
+        definition: '@shot_root/1_WORK/RENDERS/v{version}/{Shot}_BKD_v{version}/{Shot}_BKD_v{version}.{SEQ}.exr'
     nuke_shot_render_pub_stereo:
-        definition: '@shot_root/4_PUBLISH/renders/v{version}/{Shot}_BKD_v{version}/{Shot}_BKD_v{version}.{SEQ}.exr'
+        definition: '@shot_root/4_PUBLISH/RENDERS/v{version}/{Shot}_BKD_v{version}/{Shot}_BKD_v{version}.{SEQ}.exr'
     # review output
     shot_quicktime_quick:
-        definition: '@shot_root/review/quickdaily/{Shot}_BKD_{iteration}.mov'
+        definition: '@shot_root/3_REVIEW/QUICKDAILY/{Shot}_BKD_{iteration}.mov'
     nuke_shot_render_movie:
         definition: '@shot_root/3_REVIEW/{Shot}_BKD_v{version}.mov'
 
