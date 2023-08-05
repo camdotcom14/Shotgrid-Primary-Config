@@ -58,7 +58,7 @@ keys:
     segment_name:
         type: str
     sg_client_version:
-	type: list
+        type: list
 
     # Represents the optional output name for frames written by the Shotgun Write Node
     nuke.output:
