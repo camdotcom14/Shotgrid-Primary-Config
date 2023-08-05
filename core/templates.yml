@@ -57,6 +57,8 @@ keys:
         type: int
     segment_name:
         type: str
+    sg_client_version:
+	type: str
 
     # Represents the optional output name for frames written by the Shotgun Write Node
     nuke.output:
@@ -410,7 +412,7 @@ paths:
     nuke_shot_render_pub_mono_dpx:
         definition: '@shot_root/4_PUBLISH/RENDERS/v{version}/{Shot}_BKD_v{version}/{Shot}_BKD_v{version}.{SEQ}.dpx'
     nuke_shot_render_stereo:
-        definition: '@shot_root/1_WORK/RENDERS/v{version}/{Shot}_BKD_v{version}/{Shot}_BKD_v{version}.{SEQ}.exr'
+        definition: '@shot_root/1_WORK/RENDERS/v{sg_client_version}/{Shot}_BKD_v{sg_client_version}/{Shot}_BKD_v{version}.{SEQ}.exr'
     nuke_shot_render_pub_stereo:
         definition: '@shot_root/4_PUBLISH/RENDERS/v{version}/{Shot}_BKD_v{version}/{Shot}_BKD_v{version}.{SEQ}.exr'
     # review output
