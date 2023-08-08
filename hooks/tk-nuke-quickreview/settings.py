@@ -117,13 +117,9 @@ class Settings(HookBaseClass):
             current_scene_name = os.path.basename(current_scene_path)
             # drop .nk
             current_scene_name = os.path.splitext(current_scene_name)[0]
-            name = current_scene_name
+            name = QR_(current_scene_name)
 
         sg_version_name += name
-
-        # append date and time
-        timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
-        sg_version_name += ", %s" % timestamp
 
         return sg_version_name
 
