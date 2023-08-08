@@ -93,7 +93,7 @@ class Settings(HookBaseClass):
         # reserve for publishing workflows, the default implementation
         # uses a date and time based naming scheme
 
-        sg_version_name = ""
+        sg_version_name = "QR_" + sg_version_name
 
         # include the shot/link as part of the name
         # if context.entity and context.entity["name"]:
