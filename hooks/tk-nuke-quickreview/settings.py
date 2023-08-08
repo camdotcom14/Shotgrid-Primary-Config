@@ -117,7 +117,7 @@ class Settings(HookBaseClass):
             current_scene_name = os.path.basename(current_scene_path)
             # drop .nk
             current_scene_name = os.path.splitext(current_scene_name)[0]
-            name = QR_(current_scene_name)
+            name = "QR_"(current_scene_name)
 
         sg_version_name += name
 
