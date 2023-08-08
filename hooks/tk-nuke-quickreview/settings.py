@@ -133,7 +133,7 @@ class Settings(HookBaseClass):
 
         :returns: tuple with (width, height)
         """
-        return 1280, 720
+        return 1920, 1080
 
     def setup_quicktime_node(self, write_node):
         """
