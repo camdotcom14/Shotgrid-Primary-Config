@@ -93,6 +93,8 @@ class Settings(HookBaseClass):
         # reserve for publishing workflows, the default implementation
         # uses a date and time based naming scheme
 
+        sg_version_name += name
+
         sg_version_name = "QR_" + sg_version_name
 
         # include the shot/link as part of the name
@@ -104,7 +106,7 @@ class Settings(HookBaseClass):
         #     )
 
         # default name in case no nuke file name is set
-        name = "Quickreview"
+        name = sg_version_name
 
         # now try to see if we are in a normal work file
         # in that case deduce the name from it
@@ -118,8 +120,6 @@ class Settings(HookBaseClass):
             # drop .nk
             current_scene_name = os.path.splitext(current_scene_name)[0]
             name = current_scene_name
-
-        sg_version_name += name
 
         return sg_version_name
 
