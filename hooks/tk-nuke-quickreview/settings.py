@@ -93,9 +93,7 @@ class Settings(HookBaseClass):
         # reserve for publishing workflows, the default implementation
         # uses a date and time based naming scheme
 
-        sg_version_name += name
-
-        sg_version_name = "QR_" + sg_version_name
+        sg_version_name = "QR_"
 
         # include the shot/link as part of the name
         # if context.entity and context.entity["name"]:
@@ -120,6 +118,8 @@ class Settings(HookBaseClass):
             # drop .nk
             current_scene_name = os.path.splitext(current_scene_name)[0]
             name = current_scene_name
+
+        sg_version_name += name
 
         return sg_version_name
 
