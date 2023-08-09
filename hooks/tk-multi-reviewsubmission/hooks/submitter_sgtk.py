@@ -83,20 +83,12 @@ class SubmitterSGTK(HookBaseClass):
         # get current shotgun user
         current_user = sgtk.util.get_current_user(self.__app.sgtk)
 
-        # Get the name of the shot and sg_client_version_number
-        ctx = self.__app.context
-        shot_entity = ctx.entity
-        if shot_entity and shot_entity["type"] == "Shot":
-            shot_name = shot_entity["code"]
-            sg_client_version_number = shot_entity.get("sg_client_version_number", "")
-        else:
-            shot_name = "UnknownShot"
-            sg_client_version_number = ""
-
-        # Combine shot name and sg_client_version_number to form the version name
-        name = f"{shot_name}_{sg_client_version_number}"
+        # create a name for the version based on the file name
+        # grab the file name, strip off extension
+        name = os.path.splitext(os.path.basename(path_to_movie))[0]
 
         # Create the version in Shotgun
+        ctx = self.__app.context
         data = {
             "code": name,
             "sg_status_list": self.__app.get_setting("new_version_status"),
