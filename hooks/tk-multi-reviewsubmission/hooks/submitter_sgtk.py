@@ -83,12 +83,9 @@ class SubmitterSGTK(HookBaseClass):
         # get current shotgun user
         current_user = sgtk.util.get_current_user(self.__app.sgtk)
 
-        # create a name for the version based on the file name
-        # grab the file name, strip off extension
-        name = "shot" + "_" + {sg_client_version_number}
-
         # Create the version in Shotgun
         ctx = self.__app.context
+        name = {shot} + "_" + {sg_client_version_number}
         data = {
             "code": name,
             "sg_status_list": self.__app.get_setting("new_version_status"),
