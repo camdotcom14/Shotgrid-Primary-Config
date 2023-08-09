@@ -84,6 +84,7 @@ class SubmitterSGTK(HookBaseClass):
         current_user = sgtk.util.get_current_user(self.__app.sgtk)
 
         # Get the name of the shot and sg_client_version_number
+        ctx = self.__app.context
         shot_entity = ctx.entity
         if shot_entity and shot_entity["type"] == "Shot":
             shot_name = shot_entity["code"]
@@ -96,7 +97,6 @@ class SubmitterSGTK(HookBaseClass):
         name = f"{shot_name}_{sg_client_version_number}"
 
         # Create the version in Shotgun
-        ctx = self.__app.context
         data = {
             "code": name,
             "sg_status_list": self.__app.get_setting("new_version_status"),
