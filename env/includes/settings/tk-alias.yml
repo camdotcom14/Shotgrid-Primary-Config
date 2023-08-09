@@ -79,4 +79,4 @@ frameworks:
     location:
       type: app_store
       name: tk-framework-alias
-      version: v1.0.0
+      version: v1.0.1
