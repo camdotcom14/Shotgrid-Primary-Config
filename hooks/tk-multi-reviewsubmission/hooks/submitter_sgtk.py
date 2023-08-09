@@ -86,10 +86,6 @@ class SubmitterSGTK(HookBaseClass):
         # create a name for the version based on the file name
         # grab the file name, strip off extension
         name = os.path.splitext(os.path.basename(path_to_movie))[0]
-        # do some replacements
-        name = name.replace("_", " ")
-        # and capitalize
-        name = name.capitalize()
 
         # Create the version in Shotgun
         ctx = self.__app.context
