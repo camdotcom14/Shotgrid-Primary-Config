@@ -85,7 +85,7 @@ class SubmitterSGTK(HookBaseClass):
 
         # create a name for the version based on the file name
         # grab the file name, strip off extension
-        name = sg_code + "_" + sg_client_version_number
+        name = "sg_code" + "_" + sg_client_version_number
 
         # Create the version in Shotgun
         ctx = self.__app.context
