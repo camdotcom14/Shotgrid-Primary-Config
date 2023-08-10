@@ -420,6 +420,7 @@ paths:
     # review output
     shot_quicktime_quick:
 <<<<<<< HEAD
+<<<<<<< HEAD
         definition: '@shot_root/2_REVIEW/QUICKDAILY/{Shot}_BKD_{iteration}.mov'
     nuke_shot_render_movie:
         definition: '@shot_root/2_REVIEW/PRORES/{Shot}_BKD_v{version}.mov'
@@ -428,6 +429,11 @@ paths:
     nuke_shot_render_movie:
         definition: '@shot_root/3_REVIEW/PRORES/{Shot}_BKD_v{version}.mov'
 >>>>>>> parent of bee55ba (Fixed schema)
+=======
+        definition: '@shot_root/3_2_REVIEW/QUICKDAILY/{Shot}_BKD_{iteration}.mov'
+    nuke_shot_render_movie:
+        definition: '@shot_root/3_2_REVIEW/PRORES/{Shot}_BKD_v{version}.mov'
+>>>>>>> parent of ffcd852 (fixed schema to match template)
 
     #
     # Hiero
