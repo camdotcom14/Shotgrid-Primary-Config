@@ -419,27 +419,9 @@ paths:
         definition: '@shot_root/3_PUBLISH/RENDERS/v{version}/{Shot}_BKD_v{sg_client_version}/{Shot}_BKD_v{sg_client_version}.{SEQ}.exr'
     # review output
     shot_quicktime_quick:
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        definition: '@shot_root/2_REVIEW/QUICKDAILY/{Shot}_BKD_{iteration}.mov'
+        definition: '@shot_root/4_REVIEW/QUICKDAILY/{Shot}_BKD_{iteration}.mov'
     nuke_shot_render_movie:
-        definition: '@shot_root/2_REVIEW/PRORES/{Shot}_BKD_v{version}.mov'
-=======
-        definition: '@shot_root/2_REVIEW/QUICKDAILY/{Shot}_BKD_{iteration}.mov'
-    nuke_shot_render_movie:
-        definition: '@shot_root/2_REVIEW/PRORES/{Shot}_BKD_v{version}.mov'
->>>>>>> parent of bee55ba (Fixed schema)
-=======
-        definition: '@shot_root/2_REVIEW/QUICKDAILY/{Shot}_BKD_{iteration}.mov'
-    nuke_shot_render_movie:
-        definition: '@shot_root/2_REVIEW/PRORES/{Shot}_BKD_v{version}.mov'
->>>>>>> parent of ffcd852 (fixed schema to match template)
-=======
-        definition: '@shot_root/2_REVIEW/QUICKDAILY/{Shot}_BKD_{iteration}.mov'
-    nuke_shot_render_movie:
-        definition: '@shot_root/2_REVIEW/PRORES/{Shot}_BKD_v{version}.mov'
->>>>>>> parent of bee55ba (Fixed schema)
+        definition: '@shot_root/4_REVIEW/PRORES/{Shot}_BKD_v{version}.mov'
 
     #
     # Hiero
