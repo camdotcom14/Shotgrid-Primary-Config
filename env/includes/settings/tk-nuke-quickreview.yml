@@ -1,0 +1,7 @@
+includes:
+- ../app_locations.yml
+
+settings.tk-nuke-quickreview:
+  settings_hook: "{config}/tk-nuke-quickreview/settings.py"
+  events_hook: "{config}/tk-nuke-quickreview/events.py"
+  location: "@apps.tk-nuke-quickreview.location"
