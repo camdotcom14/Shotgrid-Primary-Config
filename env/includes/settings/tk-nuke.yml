@@ -166,17 +166,20 @@ settings.tk-nuke.shot_step:
       location: "@apps.tk-multi-about.location"
     tk-multi-breakdown:
       location: "@apps.tk-multi-breakdown.location"
-    tk-multi-setframerange:
-      location: "@apps.tk-multi-setframerange.location"
     tk-multi-setframerange_cuts:
       menu_name: Sync frame range using cut fields
       sg_in_frame_field: sg_cut_in
       sg_out_frame_field: sg_cut_out
       location: "@apps.tk-multi-setframerange.location"
     tk-multi-setframerange_handles:
-      menu_name: Sync frame range using handle fields
-      sg_in_frame_field: sg_handle_in
-      sg_out_frame_field: sg_handle_out
+      menu_name: Sync frame range using comp fields
+      sg_in_frame_field: sg_comp_in
+      sg_out_frame_field: sg_comp_out
+      location: "@apps.tk-multi-setframerange.location"
+    tk-multi-setframerange_full:
+      menu_name: Sync frame range using head and tail fields
+      sg_in_frame_field: sg_head_in
+      sg_out_frame_field: sg_tail_out
       location: "@apps.tk-multi-setframerange.location"
     tk-multi-loader2: "@settings.tk-multi-loader2.nuke"
     tk-multi-publish2: "@settings.tk-multi-publish2.nuke.shot_step"
