@@ -176,11 +176,6 @@ settings.tk-nuke.shot_step:
       sg_in_frame_field: sg_comp_in
       sg_out_frame_field: sg_comp_out
       location: "@apps.tk-multi-setframerange.location"
-    tk-multi-setframerange_full:
-      menu_name: Sync frame range using head and tail fields
-      sg_in_frame_field: sg_head_in
-      sg_out_frame_field: sg_tail_out
-      location: "@apps.tk-multi-setframerange.location"
     tk-multi-loader2: "@settings.tk-multi-loader2.nuke"
     tk-multi-publish2: "@settings.tk-multi-publish2.nuke.shot_step"
     tk-multi-reviewsubmission: "@settings.tk-multi-reviewsubmission.nuke.shot"
