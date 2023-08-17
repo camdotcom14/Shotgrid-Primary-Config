@@ -30,7 +30,7 @@ settings.tk-multi-reviewsubmission.nuke.shot:
   slate_logo: icons/review_submit_logo.png
   submitter_hook: '{config}/tk-multi-reviewsubmission/hooks/submitter_sgtk.py'
   location: "@apps.tk-multi-reviewsubmission.location"
-  new_version_status: "cnv"
+  new_version_status: "rqc"
 
 # Maya Playblast
 settings.tk-multi-reviewsubmission.maya:
