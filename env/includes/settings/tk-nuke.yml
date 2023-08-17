@@ -177,7 +177,7 @@ settings.tk-nuke.shot_step:
       sg_out_frame_field: sg_comp_out
       location: "@apps.tk-multi-setframerange.location"
     tk-multi-setframerange_slate:
-      menu_name: Sync frame range using comp fields w/ slate
+      menu_name: Sync frame range using comp fields w slate
       sg_in_frame_field: sg_comp_in_slate
       sg_out_frame_field: sg_comp_out
       location: "@apps.tk-multi-setframerange.location"
