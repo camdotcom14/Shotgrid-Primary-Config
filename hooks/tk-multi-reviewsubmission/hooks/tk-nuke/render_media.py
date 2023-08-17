@@ -95,52 +95,13 @@ class RenderMedia(HookBaseClass):
             if color_space:
                 read["colorspace"].setValue(color_space)
 
-            # now create the slate/burnin node
-            burn = nuke.nodePaste(self._burnin_nk)
-            burn.setInput(0, read)
-
-            # set the fonts for all text fields
-            burn.node("top_left_text")["font"].setValue(self._font)
-            burn.node("top_right_text")["font"].setValue(self._font)
-            burn.node("bottom_left_text")["font"].setValue(self._font)
-            burn.node("framecounter")["font"].setValue(self._font)
-            burn.node("slate_info")["font"].setValue(self._font)
-
-            # add the logo
-            burn.node("logo")["file"].setValue(self._logo)
-
-            # format the burnins
-            version_padding_format = "%%0%dd" % self.__app.get_setting(
-                "version_number_padding"
-            )
-            version_str = version_padding_format % version
-
             if ctx.task:
                 version_label = "%s, v%s" % (ctx.task["name"], version_str)
             elif ctx.step:
                 version_label = "%s, v%s" % (ctx.step["name"], version_str)
             else:
                 version_label = "v%s" % version_str
-
-            burn.node("top_left_text")["message"].setValue(ctx.project["name"])
-            burn.node("top_right_text")["message"].setValue(ctx.entity["name"])
-            burn.node("bottom_left_text")["message"].setValue(version_label)
-
-            # and the slate
-            slate_str = "Project: %s\n" % ctx.project["name"]
-            slate_str += "%s: %s\n" % (ctx.entity["type"], ctx.entity["name"])
-            slate_str += "Name: %s\n" % name.capitalize()
-            slate_str += "Version: %s\n" % version_str
-
-            if ctx.task:
-                slate_str += "Task: %s\n" % ctx.task["name"]
-            elif ctx.step:
-                slate_str += "Step: %s\n" % ctx.step["name"]
-
-            slate_str += "Frames: %s - %s\n" % (first_frame, last_frame)
-
-            burn.node("slate_info")["message"].setValue(slate_str)
-
+                
             # create a scale node
             scale = self.__create_scale_node(width, height)
             scale.setInput(0, burn)
