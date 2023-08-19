@@ -1,8 +1,22 @@
+# Copyright (c) 2019 Shotgun Software Inc.
+#
+# CONFIDENTIAL AND PROPRIETARY
+#
+# This work is provided "AS IS" and subject to the Shotgun Pipeline Toolkit
+# Source Code License included in this distribution package. See LICENSE.
+# By accessing, using, copying or modifying this work you indicate your
+# agreement to the Shotgun Pipeline Toolkit Source Code License. All rights
+# not expressly granted therein are reserved by Shotgun Software Inc.
+
 import sgtk
 import os
+import sys
 import nuke
 
+from tank_vendor import six
+
 HookBaseClass = sgtk.get_hook_baseclass()
+
 
 class RenderMedia(HookBaseClass):
     """
@@ -11,7 +25,30 @@ class RenderMedia(HookBaseClass):
 
     def __init__(self, *args, **kwargs):
         super(RenderMedia, self).__init__(*args, **kwargs)
+
         self.__app = self.parent
+
+        self._burnin_nk = os.path.join(
+            self.__app.disk_location, "resources", "burnin.nk"
+        )
+        self._font = os.path.join(
+            self.__app.disk_location, "resources", "liberationsans_regular.ttf"
+        )
+
+        # If the slate_logo supplied was an empty string, the result of getting
+        # the setting will be the config folder which is invalid so catch that
+        # and make our logo path an empty string which Nuke won't have issues with.
+        self._logo = None
+        if os.path.isfile(self.__app.get_setting("slate_logo", "")):
+            self._logo = self.__app.get_setting("slate_logo", "")
+        else:
+            self._logo = ""
+
+        # now transform paths to be forward slashes, otherwise it wont work on windows.
+        if sgtk.util.is_windows():
+            self._font = self._font.replace(os.sep, "/")
+            self._logo = self._logo.replace(os.sep, "/")
+            self._burnin_nk = self._burnin_nk.replace(os.sep, "/")
 
     def render(
         self,
@@ -34,7 +71,7 @@ class RenderMedia(HookBaseClass):
         :param int height:          Height of the output movie
         :param int first_frame:     The first frame of the sequence of frames.
         :param int last_frame:      The last frame of the sequence of frames.
-        :param str version:         Version number to use for the output movie
+        :param str version:         Version number to use for the output movie slate and burn-in
         :param str name:            Name to use in the slate for the output movie
         :param str color_space:     Colorspace of the input frames
 
@@ -58,9 +95,55 @@ class RenderMedia(HookBaseClass):
             if color_space:
                 read["colorspace"].setValue(color_space)
 
+            # now create the slate/burnin node
+            burn = nuke.nodePaste(self._burnin_nk)
+            burn.setInput(0, read)
+
+            # set the fonts for all text fields
+            burn.node("top_left_text")["font"].setValue(self._font)
+            burn.node("top_right_text")["font"].setValue(self._font)
+            burn.node("bottom_left_text")["font"].setValue(self._font)
+            burn.node("framecounter")["font"].setValue(self._font)
+            burn.node("slate_info")["font"].setValue(self._font)
+
+            # add the logo
+            burn.node("logo")["file"].setValue(self._logo)
+
+            # format the burnins
+            version_padding_format = "%%0%dd" % self.__app.get_setting(
+                "version_number_padding"
+            )
+            version_str = version_padding_format % version
+
+            if ctx.task:
+                version_label = "%s, v%s" % (ctx.task["name"], version_str)
+            elif ctx.step:
+                version_label = "%s, v%s" % (ctx.step["name"], version_str)
+            else:
+                version_label = "v%s" % version_str
+
+            burn.node("top_left_text")["message"].setValue(ctx.project["name"])
+            burn.node("top_right_text")["message"].setValue(ctx.entity["name"])
+            burn.node("bottom_left_text")["message"].setValue(version_label)
+
+            # and the slate
+            slate_str = "Project: %s\n" % ctx.project["name"]
+            slate_str += "%s: %s\n" % (ctx.entity["type"], ctx.entity["name"])
+            slate_str += "Name: %s\n" % name.capitalize()
+            slate_str += "Version: %s\n" % version_str
+
+            if ctx.task:
+                slate_str += "Task: %s\n" % ctx.task["name"]
+            elif ctx.step:
+                slate_str += "Step: %s\n" % ctx.step["name"]
+
+            slate_str += "Frames: %s - %s\n" % (first_frame, last_frame)
+
+            burn.node("slate_info")["message"].setValue(slate_str)
+
             # create a scale node
             scale = self.__create_scale_node(width, height)
-            scale.setInput(0, read)
+            scale.setInput(0, burn)
 
             # Create the output node
             output_node = self.__create_output_node(output_path)
@@ -152,6 +235,8 @@ class RenderMedia(HookBaseClass):
         if sgtk.util.is_windows() or sgtk.util.is_macos():
             settings["file_type"] = "mov"
             if nuke.NUKE_VERSION_MAJOR >= 9:
+                # Nuke 9.0v1 changed the codec knob name to meta_codec and added an encoder knob
+                # (which defaults to the new mov64 encoder/decoder).
                 settings["meta_codec"] = "jpeg"
                 settings["mov64_quality_max"] = "3"
             else:
@@ -159,10 +244,13 @@ class RenderMedia(HookBaseClass):
 
         elif sgtk.util.is_linux():
             if nuke.NUKE_VERSION_MAJOR >= 9:
+                # Nuke 9.0v1 removed ffmpeg and replaced it with the mov64 writer
+                # http://help.thefoundry.co.uk/nuke/9.0/#appendices/appendixc/supported_file_formats.html
                 settings["file_type"] = "mov64"
                 settings["mov64_codec"] = "jpeg"
                 settings["mov64_quality_max"] = "3"
             else:
+                # the 'codec' knob name was changed to 'format' in Nuke 7.0
                 settings["file_type"] = "ffmpeg"
                 settings["format"] = "MOV format (mov)"
 
