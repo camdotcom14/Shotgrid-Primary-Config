@@ -4,4 +4,4 @@ includes:
 settings.tk-nuke-quickreview:
   settings_hook: "{config}/tk-nuke-quickreview/settings.py"
   events_hook: "{config}/tk-nuke-quickreview/events.py"
-  location: "@apps.tk-nuke-quickreview.location"
+  location: "{config}/apps/tk-nuke-quickreview"
