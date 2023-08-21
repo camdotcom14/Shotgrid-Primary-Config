@@ -234,9 +234,9 @@ paths:
         definition: '1_SEQUENCES/{Sequence}/{Shot}/finishing/renders/{segment_name}_v{version}/{Shot}_{segment_name}_v{version}.{flame.frame}.dpx'
     flame_shot_render_exr:
         definition: '1_SEQUENCES/{Sequence}/{Shot}/finishing/renders/{segment_name}_v{version}/{Shot}_{segment_name}_v{version}.{flame.frame}.exr'
-    flame_shot_{step}_dpx:
+    flame_shot_{Step}_dpx:
         definition: '1_SEQUENCES/{Sequence}/{Shot}/finishing/comp/{segment_name}_v{version}/{Shot}_{segment_name}_v{version}.{flame.frame}.dpx'
-    flame_shot_{step}_exr:
+    flame_shot_{Step}_exr:
         definition: '1_SEQUENCES/{Sequence}/{Shot}/finishing/comp/{segment_name}_v{version}/{Shot}_{segment_name}_v{version}.{flame.frame}.exr'
 
     #
@@ -401,27 +401,27 @@ paths:
         definition: '@shot_root/3_PUBLISH/nuke'
     # The location of WIP script files
     nuke_shot_work:
-        definition: '@shot_root/1_WORK/nuke/{Shot}_{step}_BKD_v{version}.nk'
+        definition: '@shot_root/1_WORK/nuke/{Shot}_{Step}_BKD_v{version}.nk'
     # The location of backups of WIP files
     nuke_shot_snapshot:
-        definition: '@shot_root/1_WORK/nuke/snapshots/{Shot}_{step}_BKD_v{version}.{timestamp}.nk'
+        definition: '@shot_root/1_WORK/nuke/snapshots/{Shot}_{Step}_BKD_v{version}.{timestamp}.nk'
     # The location of published nuke script files
     nuke_shot_publish:
-        definition: '@shot_root/3_PUBLISH/nuke/{Shot}_{step}_BKD_v{version}.nk'
+        definition: '@shot_root/3_PUBLISH/nuke/{Shot}_{Step}_BKD_v{version}.nk'
     # write node outputs
     nuke_shot_render_mono_dpx:
-        definition: '@shot_root/1_WORK/RENDERS/v{sg_client_version}/{Shot}_{step}_BKD_v{sg_client_version}/{Shot}_{step}_BKD_v{version}.{SEQ}.dpx'
+        definition: '@shot_root/1_WORK/RENDERS/v{sg_client_version}/{Shot}_{Step}_BKD_v{sg_client_version}/{Shot}_{Step}_BKD_v{version}.{SEQ}.dpx'
     nuke_shot_render_pub_mono_dpx:
-        definition: '@shot_root/3_PUBLISH/RENDERS/v{sg_client_version}/{Shot}_{step}_BKD_v{sg_client_version}/{Shot}_{step}_BKD_v{version}.{SEQ}.dpx'
+        definition: '@shot_root/3_PUBLISH/RENDERS/v{sg_client_version}/{Shot}_{Step}_BKD_v{sg_client_version}/{Shot}_{Step}_BKD_v{version}.{SEQ}.dpx'
     nuke_shot_render_stereo:
-        definition: '@shot_root/1_WORK/RENDERS/v{version}/{Shot}_{step}_BKD_v{sg_client_version}/{Shot}_{step}_BKD_v{sg_client_version}.{SEQ}.exr'
+        definition: '@shot_root/1_WORK/RENDERS/v{version}/{Shot}_{Step}_BKD_v{sg_client_version}/{Shot}_{Step}_BKD_v{sg_client_version}.{SEQ}.exr'
     nuke_shot_render_pub_stereo:
-        definition: '@shot_root/3_PUBLISH/RENDERS/v{version}/{Shot}_{step}_BKD_v{sg_client_version}/{Shot}_{step}_BKD_v{sg_client_version}.{SEQ}.exr'
+        definition: '@shot_root/3_PUBLISH/RENDERS/v{version}/{Shot}_{Step}_BKD_v{sg_client_version}/{Shot}_{Step}_BKD_v{sg_client_version}.{SEQ}.exr'
     # review output
     shot_quicktime_quick:
-        definition: '@shot_root/4_REVIEW/QUICKDAILY/{Shot}_{step}_BKD_{iteration}.mov'
+        definition: '@shot_root/4_REVIEW/QUICKDAILY/{Shot}_{Step}_BKD_{iteration}.mov'
     nuke_shot_render_movie:
-        definition: '@shot_root/4_REVIEW/PRORES/{Shot}_{step}_BKD_v{version}.mov'
+        definition: '@shot_root/4_REVIEW/PRORES/{Shot}_{Step}_BKD_v{version}.mov'
 
     #
     # Hiero
