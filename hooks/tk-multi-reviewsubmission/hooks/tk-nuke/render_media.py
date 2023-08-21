@@ -13,18 +13,6 @@ class RenderMedia(HookBaseClass):
         super(RenderMedia, self).__init__(*args, **kwargs)
         self.__app = self.parent
 
-    def __create_gamma_node(self):
-        """
-        Create the Nuke gamma correction node.
-
-        :returns: Pre-configured Gamma node
-        :rtype: Nuke node
-        """
-        gamma_node = nuke.nodes.Gamma()
-        gamma_node['value'].setValue(0.5)
-        return gamma_node
-
-
     def render(
         self,
         input_path,
@@ -73,10 +61,6 @@ class RenderMedia(HookBaseClass):
             # create a scale node
             scale = self.__create_scale_node(width, height)
             scale.setInput(0, read)
-
-            # create a gamma correction node
-            gamma_node = self.__create_gamma_node()
-            gamma_node.setInput(0, scale)
 
             # Create the output node
             output_node = self.__create_output_node(output_path)
