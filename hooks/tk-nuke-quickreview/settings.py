@@ -24,6 +24,129 @@ class Settings(HookBaseClass):
     Controls various review settings and formatting.
     """
 
+    def get_burnins_and_slate(self, sg_version_name, context):
+        """
+        Return the burnins that should be used for the quicktime.
+
+        :param str sg_version_name: The name of the shotgun review version
+        :param context: The context associated with the version.
+        :returns: Dictionary with burn-ins and slate strings
+        """
+        return_data = {}
+        slate_items = []
+        # current user
+        user_data = sgtk.util.get_current_user(self.parent.sgtk)
+        if user_data is None:
+            user_name = "Unknown User"
+        else:
+            user_name = user_data.get("name", "Unknown User")
+
+        # top-left says
+        # sg version name
+        return_data["top_left"] = sg_version_name
+
+        # top-right has date
+        # The format '23 Jan 2012' is universally understood.
+        today = datetime.date.today()
+        date_formatted = today.strftime("%d %b %Y")
+        return_data["top_right"] = date_formatted
+
+        # and format the slate
+        
+        slate_items.append("Project: %s" % context.project["name"])
+        slate_items.append("Name: %s" % sg_version_name)
+
+        # Query a custom field
+        custom_field = 'sg_vendor'
+        custom_field_title = 'Vendor'
+
+        query_results = self.sgtk.shotgun.find(context.entity["type"], 
+                                            filters=[["id", 'is', context.entity["id"]]],
+                                            fields=["code", custom_field])
+            
+        self.logger.info( "Adding custom field %s while setting the slate attributes "
+                         "for tk-nuke-quickreview", custom_field)
+
+        if len(query_results) == 1:
+            entity = query_results[0]
+            self.logger.info("Adding custom field  %s to slate, with value: %s" %
+                                      (custom_field, entity[custom_field]))
+            slate_items.append("%s: %s" % (custom_field_title, entity[custom_field]))
+        else:
+            self.logger.warn("Entity %s has not custom attribute with code %s" % (context.entity["name"], custom_field))
+
+        slate_items.append("Date: %s" % date_formatted)
+
+        # Query a custom field
+        custom_field = 'sg_camera_info_'
+        custom_field_title = 'Lens'
+
+        query_results = self.sgtk.shotgun.find(context.entity["type"], 
+                                            filters=[["id", 'is', context.entity["id"]]],
+                                            fields=["code", custom_field])
+            
+        self.logger.info( "Adding custom field %s while setting the slate attributes "
+                         "for tk-nuke-quickreview", custom_field)
+
+        if len(query_results) == 1:
+            entity = query_results[0]
+            self.logger.info("Adding custom field  %s to slate, with value: %s" %
+                                      (custom_field, entity[custom_field]))
+            slate_items.append("%s: %s" % (custom_field_title, entity[custom_field]))
+        else:
+            self.logger.warn("Entity %s has not custom attribute with code %s" % (context.entity["name"], custom_field))
+
+        # Query a custom field
+        custom_field = 'sg_frames'
+        custom_field_title = 'Frames'
+
+        query_results = self.sgtk.shotgun.find(context.entity["type"], 
+                                            filters=[["id", 'is', context.entity["id"]]],
+                                            fields=["code", custom_field])
+            
+        self.logger.info( "Adding custom field %s while setting the slate attributes "
+                         "for tk-nuke-quickreview", custom_field)
+
+        if len(query_results) == 1:
+            entity = query_results[0]
+            self.logger.info("Adding custom field  %s to slate, with value: %s" %
+                                      (custom_field, entity[custom_field]))
+            slate_items.append("%s: %s" % (custom_field_title, entity[custom_field]))
+        else:
+            self.logger.warn("Entity %s has not custom attribute with code %s" % (context.entity["name"], custom_field))
+
+        # bottom left says
+        # sg version name
+        # User
+        custom_field = 'sg_slate'
+        bottom_left = custom_field
+        custom_field_title = 'Notes'
+
+        query_results = self.sgtk.shotgun.find(context.entity["type"], 
+                                            filters=[["id", 'is', context.entity["id"]]],
+                                            fields=["code", custom_field])
+            
+        self.logger.info( "Adding custom field %s while setting the burnin attributes "
+                         "for tk-nuke-quickreview", custom_field)
+
+        if len(query_results) == 1:
+            entity = query_results[0]
+            self.logger.info("Adding custom field  %s to burnin, with value: %s" %
+                                      (custom_field, entity[custom_field]))
+            slate_items.append("%s: %s" % (custom_field_title, entity[custom_field]))
+
+            self.logger.info("Adding custom field %s as bottom left, with value: %s" % (custom_field, entity[custom_field]))
+            return_data["bottom_left"] = entity[custom_field]
+        else:
+            self.logger.warn("Entity %s has not custom attribute with code %s" % (context.entity["name"], custom_field))
+            return_date["bottom_left"] = "error"
+
+        return_data["slate"] = slate_items
+
+    
+
+        return return_data
+
     def get_title(self, context):
         """
         Returns the title that should be used for the version
@@ -46,7 +169,7 @@ class Settings(HookBaseClass):
         #     )
 
         # default name in case no nuke file name is set
-        name = sg_version_name
+        name = "Quickreview"
 
         # now try to see if we are in a normal work file
         # in that case deduce the name from it
@@ -60,7 +183,7 @@ class Settings(HookBaseClass):
             # drop .nk
             current_scene_name = os.path.splitext(current_scene_name)[0]
             name = current_scene_name
-
+            
         sg_version_name += name
 
         return sg_version_name
