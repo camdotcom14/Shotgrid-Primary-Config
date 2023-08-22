@@ -64,23 +64,70 @@ class Settings(HookBaseClass):
         # and format the slate
         slate_items = []
         slate_items.append("Project: %s" % context.project["name"])
-        if context.entity:
-            slate_items.append(
-                "%s: %s" % (context.entity["type"], context.entity["name"])
-            )
         slate_items.append("Name: %s" % sg_version_name)
 
-        if context.task:
-            slate_items.append("Task: %s" % context.task["name"])
-        elif context.step:
-            slate_items.append("Step: %s" % context.step["name"])
+        # Query a custom field
+        custom_field = 'sg_vendor'
+        custom_field_title = 'Vendor'
+
+        query_results = self.sgtk.shotgun.find(context.entity["type"], 
+                                            filters=[["id", 'is', context.entity["id"]]],
+                                            fields=["code", custom_field])
+            
+        self.logger.info( "Adding custom field %s while setting the slate attributes "
+                         "for tk-nuke-quickreview", custom_field)
+
+        if len(query_results) == 1:
+            entity = query_results[0]
+            self.logger.info("Adding custom field  %s to slate, with value: %s" %
+                                      (custom_field, entity[custom_field]))
+            slate_items.append("%s: %s" % (custom_field_title, entity[custom_field]))
+        else:
+            self.logger.warn("Entity %s has not custom attribute with code %s" % (context.entity["name"], custom_field))
 
         slate_items.append("Date: %s" % date_formatted)
-        slate_items.append("User: %s" % user_name)
 
         # Query a custom field
-        custom_field = 'sg_shot_custom_data'
-        custom_field_title = 'Shot custom data'
+        custom_field = 'sg_camera_info_'
+        custom_field_title = 'Lens'
+
+        query_results = self.sgtk.shotgun.find(context.entity["type"], 
+                                            filters=[["id", 'is', context.entity["id"]]],
+                                            fields=["code", custom_field])
+            
+        self.logger.info( "Adding custom field %s while setting the slate attributes "
+                         "for tk-nuke-quickreview", custom_field)
+
+        if len(query_results) == 1:
+            entity = query_results[0]
+            self.logger.info("Adding custom field  %s to slate, with value: %s" %
+                                      (custom_field, entity[custom_field]))
+            slate_items.append("%s: %s" % (custom_field_title, entity[custom_field]))
+        else:
+            self.logger.warn("Entity %s has not custom attribute with code %s" % (context.entity["name"], custom_field))
+
+        # Query a custom field
+        custom_field = 'sg_frames'
+        custom_field_title = 'Frames'
+
+        query_results = self.sgtk.shotgun.find(context.entity["type"], 
+                                            filters=[["id", 'is', context.entity["id"]]],
+                                            fields=["code", custom_field])
+            
+        self.logger.info( "Adding custom field %s while setting the slate attributes "
+                         "for tk-nuke-quickreview", custom_field)
+
+        if len(query_results) == 1:
+            entity = query_results[0]
+            self.logger.info("Adding custom field  %s to slate, with value: %s" %
+                                      (custom_field, entity[custom_field]))
+            slate_items.append("%s: %s" % (custom_field_title, entity[custom_field]))
+        else:
+            self.logger.warn("Entity %s has not custom attribute with code %s" % (context.entity["name"], custom_field))
+
+        # Query a custom field
+        custom_field = 'sg_slate'
+        custom_field_title = 'Notes'
 
         query_results = self.sgtk.shotgun.find(context.entity["type"], 
                                             filters=[["id", 'is', context.entity["id"]]],
@@ -139,10 +186,6 @@ class Settings(HookBaseClass):
             name = current_scene_name
             
         sg_version_name += name
-
-        # append date and time
-        timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
-        sg_version_name += ", %s" % timestamp
 
         return sg_version_name
 
