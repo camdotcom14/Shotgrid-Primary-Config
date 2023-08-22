@@ -24,6 +24,83 @@ class Settings(HookBaseClass):
     Controls various review settings and formatting.
     """
 
+    def get_burnins_and_slate(self, sg_version_name, context):
+        """
+        Return the burnins that should be used for the quicktime.
+
+        :param str sg_version_name: The name of the shotgun review version
+        :param context: The context associated with the version.
+        :returns: Dictionary with burn-ins and slate strings
+        """
+        return_data = {}
+
+        # current user
+        user_data = sgtk.util.get_current_user(self.parent.sgtk)
+        if user_data is None:
+            user_name = "Unknown User"
+        else:
+            user_name = user_data.get("name", "Unknown User")
+
+        # top-left says
+        # Project XYZ
+        # Shot ABC
+        top_left = "%s" % context.project["name"]
+        if context.entity:
+            top_left += "\n%s %s" % (context.entity["type"], context.entity["name"])
+        return_data["top_left"] = top_left
+
+        # top-right has date
+        # The format '23 Jan 2012' is universally understood.
+        today = datetime.date.today()
+        date_formatted = today.strftime("%d %b %Y")
+        return_data["top_right"] = date_formatted
+
+        # bottom left says
+        # sg version name
+        # User
+        bottom_left = "%s\n%s" % (sg_version_name, user_name)
+        return_data["bottom_left"] = bottom_left
+
+        # and format the slate
+        slate_items = []
+        slate_items.append("Project: %s" % context.project["name"])
+        if context.entity:
+            slate_items.append(
+                "%s: %s" % (context.entity["type"], context.entity["name"])
+            )
+        slate_items.append("Name: %s" % sg_version_name)
+
+        if context.task:
+            slate_items.append("Task: %s" % context.task["name"])
+        elif context.step:
+            slate_items.append("Step: %s" % context.step["name"])
+
+        slate_items.append("Date: %s" % date_formatted)
+        slate_items.append("User: %s" % user_name)
+
+        # Query a custom field
+        custom_field = 'sg_shot_custom_data'
+        custom_field_title = 'Shot custom data'
+
+        query_results = self.sgtk.shotgun.find(context.entity["type"], 
+                                            filters=[["id", 'is', context.entity["id"]]],
+                                            fields=["code", custom_field])
+            
+        self.logger.info( "Adding custom field %s while setting the slate attributes "
+                         "for tk-nuke-quickreview", custom_field)
+
+        if len(query_results) == 1:
+            entity = query_results[0]
+            self.logger.info("Adding custom field  %s to slate, with value: %s" %
+                                      (custom_field, entity[custom_field]))
+            slate_items.append("%s: %s" % (custom_field_title, entity[custom_field]))
+        else:
+            self.logger.warn("Entity %s has not custom attribute with code %s" % (context.entity["name"], custom_field))
+
+        return_data["slate"] = slate_items
+
+        return return_data
+
     def get_title(self, context):
         """
         Returns the title that should be used for the version
@@ -46,7 +123,7 @@ class Settings(HookBaseClass):
         #     )
 
         # default name in case no nuke file name is set
-        name = sg_version_name
+        name = "Quickreview"
 
         # now try to see if we are in a normal work file
         # in that case deduce the name from it
@@ -60,8 +137,12 @@ class Settings(HookBaseClass):
             # drop .nk
             current_scene_name = os.path.splitext(current_scene_name)[0]
             name = current_scene_name
-
+            
         sg_version_name += name
+
+        # append date and time
+        timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
+        sg_version_name += ", %s" % timestamp
 
         return sg_version_name
 
