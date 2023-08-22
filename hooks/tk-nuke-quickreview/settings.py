@@ -33,7 +33,7 @@ class Settings(HookBaseClass):
         :returns: Dictionary with burn-ins and slate strings
         """
         return_data = {}
-
+        slate_items = []
         # current user
         user_data = sgtk.util.get_current_user(self.parent.sgtk)
         if user_data is None:
@@ -42,12 +42,8 @@ class Settings(HookBaseClass):
             user_name = user_data.get("name", "Unknown User")
 
         # top-left says
-        # Project XYZ
-        # Shot ABC
-        top_left = "%s" % context.project["name"]
-        if context.entity:
-            top_left += "\n%s %s" % (context.entity["type"], context.entity["name"])
-        return_data["top_left"] = top_left
+        # sg version name
+        return_data["top_left"] = sg_version_name
 
         # top-right has date
         # The format '23 Jan 2012' is universally understood.
@@ -55,14 +51,8 @@ class Settings(HookBaseClass):
         date_formatted = today.strftime("%d %b %Y")
         return_data["top_right"] = date_formatted
 
-        # bottom left says
-        # sg version name
-        # User
-        bottom_left = "%s\n%s" % (sg_version_name, user_name)
-        return_data["bottom_left"] = bottom_left
-
         # and format the slate
-        slate_items = []
+        
         slate_items.append("Project: %s" % context.project["name"])
         slate_items.append("Name: %s" % sg_version_name)
 
@@ -125,26 +115,35 @@ class Settings(HookBaseClass):
         else:
             self.logger.warn("Entity %s has not custom attribute with code %s" % (context.entity["name"], custom_field))
 
-        # Query a custom field
+        # bottom left says
+        # sg version name
+        # User
         custom_field = 'sg_slate'
+        bottom_left = custom_field
         custom_field_title = 'Notes'
 
         query_results = self.sgtk.shotgun.find(context.entity["type"], 
                                             filters=[["id", 'is', context.entity["id"]]],
                                             fields=["code", custom_field])
             
-        self.logger.info( "Adding custom field %s while setting the slate attributes "
+        self.logger.info( "Adding custom field %s while setting the burnin attributes "
                          "for tk-nuke-quickreview", custom_field)
 
         if len(query_results) == 1:
             entity = query_results[0]
-            self.logger.info("Adding custom field  %s to slate, with value: %s" %
+            self.logger.info("Adding custom field  %s to burnin, with value: %s" %
                                       (custom_field, entity[custom_field]))
             slate_items.append("%s: %s" % (custom_field_title, entity[custom_field]))
+
+            self.logger.info("Adding custom field %s as bottom left, with value: %s" % (custom_field, entity[custom_field]))
+            return_data["bottom_left"] = entity[custom_field]
         else:
             self.logger.warn("Entity %s has not custom attribute with code %s" % (context.entity["name"], custom_field))
+            return_date["bottom_left"] = "error"
 
         return_data["slate"] = slate_items
+
+    
 
         return return_data
 
