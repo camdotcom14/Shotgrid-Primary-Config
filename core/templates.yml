@@ -245,22 +245,22 @@ paths:
 
     # The location of WIP files
     photoshop_shot_work:
-        definition: '@shot_root/1_WORK/photoshop/{name}.v{version}.psd'
+        definition: '@shot_root/1_WORK/photoshop/{Shot}_{Step}_BKD_v{version}.psd'
     shot_work_area_photoshop:
         definition: '@shot_root/1_WORK/photoshop'
     # The location of backups of WIP files
     photoshop_shot_snapshot:
-        definition: '@shot_root/1_WORK/photoshop/snapshots/{name}.v{version}.{timestamp}.psd'
+        definition: '@shot_root/1_WORK/photoshop/snapshots/{Shot}_{Step}_BKD_v{version}_{timestamp}.psd'
     # The location of published files
     shot_publish_area_photoshop:
         definition: '@shot_root/3_PUBLISH/photoshop'
     photoshop_shot_publish:
-        definition: '@shot_root/3_PUBLISH/photoshop/{name}.v{version}.psd'
+        definition: '@shot_root/3_PUBLISH/photoshop/{Shot}_{Step}_BKD_v{version}.psd'
     # The location of the published images
     photoshop_shot_png_publish:
-        definition: '@shot_root/3_PUBLISH/photoshop/{name}.v{version}.png'
+        definition: '@shot_root/3_PUBLISH/photoshop/{Shot}_{Step}_BKD_v{version}.png'
     photoshop_shot_jpg_publish:
-        definition: '@shot_root/3_PUBLISH/photoshop/{name}.v{version}.jpg'
+        definition: '@shot_root/3_PUBLISH/photoshop/{Shot}_{Step}_BKD_v{version}.jpg'
 
     #
     # After Effects
@@ -268,24 +268,24 @@ paths:
 
     # The location of WIP files
     aftereffects_shot_work:
-        definition: '@shot_root/1_WORK/afx/{name}.v{version}.aep'
+        definition: '@shot_root/1_WORK/afx/{Shot}_{Step}_BKD_v{version}.aep'
     shot_work_area_aftereffects:
         definition: '@shot_root/1_WORK/afx'
     # The location of backups of WIP files
     aftereffects_shot_snapshot:
-        definition: '@shot_root/1_WORK/afx/snapshots/{name}.v{version}.{timestamp}.aep'
+        definition: '@shot_root/1_WORK/afx/snapshots/{Shot}_{Step}_BKD_v{version}_{timestamp}.aep'
     # The location of published files
     shot_publish_area_aftereffects:
         definition: '@shot_root/3_PUBLISH/afx'
     aftereffects_shot_publish:
-        definition: '@shot_root/3_PUBLISH/afx/{name}.v{version}.aep'
+        definition: '@shot_root/3_PUBLISH/afx/{Shot}_{Step}_BKD_v{version}.aep'
     aftereffects_shot_render_pub_mono:
-        definition: '@shot_root/3_PUBLISH/elements/{name}/v{version}/{width}x{height}/{Shot}_{name}_{afx.comp}_v{version}.{SEQ}.tif'
+        definition: '@shot_root/3_PUBLISH/elements/{Shot}/v{version}/{width}x{height}/{Shot}_{Step}_BKD_v{version}.{SEQ}.tif'
     # The following template uses {afx.mov.ext} this is a special key, that will be only there
     # in the beta to support different extensions on mac and windows, while using the same
     # output module (Lossless with Alpha)
     aftereffects_shot_render_movie:
-        definition: '@shot_root/review/{Shot}_{name}_{afx.comp}_v{version}.{afx.mov.ext}'
+        definition: '@shot_root/review/{Shot}_{Step}_BKD_v{version}.{afx.mov.ext}'
 
 
     #
@@ -300,13 +300,13 @@ paths:
         definition: '@shot_root/3_PUBLISH/maya'
     # The location of WIP files
     maya_shot_work:
-        definition: '@shot_root/1_WORK/maya/{name}.v{version}.{maya_extension}'
+        definition: '@shot_root/1_WORK/maya/{Shot}.{Step}.BKD.v{version}.{maya_extension}'
     # The location of backups of WIP files
     maya_shot_snapshot:
-        definition: '@shot_root/1_WORK/maya/snapshots/{name}.v{version}.{timestamp}.{maya_extension}'
+        definition: '@shot_root/1_WORK/maya/snapshots/{Shot}.{Step}.BKD.v{version}.{timestamp}.{maya_extension}'
     # The location of published maya files
     maya_shot_publish:
-        definition: '@shot_root/3_PUBLISH/maya/{name}.v{version}.{maya_extension}'
+        definition: '@shot_root/3_PUBLISH/maya/{Shot}.{Step}.BKD.v{version}.{maya_extension}'
 
 
     #
@@ -401,22 +401,22 @@ paths:
         definition: '@shot_root/3_PUBLISH/nuke'
     # The location of WIP script files
     nuke_shot_work:
-        definition: '@shot_root/1_WORK/nuke/{Shot}_{Step}_BKD_v{version}.nk'
+        definition: '@shot_root/1_WORK/nuke/scripts/{Shot}_{Step}_BKD_v{version}.nk'
     # The location of backups of WIP files
     nuke_shot_snapshot:
         definition: '@shot_root/1_WORK/nuke/snapshots/{Shot}_{Step}_BKD_v{version}.{timestamp}.nk'
     # The location of published nuke script files
     nuke_shot_publish:
-        definition: '@shot_root/3_PUBLISH/nuke/{Shot}_{Step}_BKD_v{version}.nk'
+        definition: '@shot_root/3_PUBLISH/nuke/scripts/{Shot}_{Step}_BKD_v{version}.nk'
     # write node outputs
     nuke_shot_render_mono_dpx:
-        definition: '@shot_root/1_WORK/RENDERS/v{sg_client_version}/{Shot}_{Step}_BKD_v{sg_client_version}/{Shot}_{Step}_BKD_v{version}.{SEQ}.dpx'
+        definition: '@shot_root/1_WORK/nuke/renders/v{sg_client_version}/{Shot}_{Step}_BKD_v{sg_client_version}/{Shot}_{Step}_BKD_v{version}.{SEQ}.dpx'
     nuke_shot_render_pub_mono_dpx:
-        definition: '@shot_root/3_PUBLISH/RENDERS/v{sg_client_version}/{Shot}_{Step}_BKD_v{sg_client_version}/{Shot}_{Step}_BKD_v{version}.{SEQ}.dpx'
+        definition: '@shot_root/3_PUBLISH/nuke/renders/v{sg_client_version}/{Shot}_{Step}_BKD_v{sg_client_version}/{Shot}_{Step}_BKD_v{version}.{SEQ}.dpx'
     nuke_shot_render_stereo:
-        definition: '@shot_root/1_WORK/RENDERS/v{version}/{Shot}_{Step}_BKD_v{sg_client_version}/{Shot}_{Step}_BKD_v{sg_client_version}.{SEQ}.exr'
+        definition: '@shot_root/1_WORK/nuke/renders/v{version}/{Shot}_{Step}_BKD_v{sg_client_version}/{Shot}_{Step}_BKD_v{sg_client_version}.{SEQ}.exr'
     nuke_shot_render_pub_stereo:
-        definition: '@shot_root/3_PUBLISH/RENDERS/v{version}/{Shot}_{Step}_BKD_v{sg_client_version}/{Shot}_{Step}_BKD_v{sg_client_version}.{SEQ}.exr'
+        definition: '@shot_root/3_PUBLISH/nuke/renders/v{version}/{Shot}_{Step}_BKD_v{sg_client_version}/{Shot}_{Step}_BKD_v{sg_client_version}.{SEQ}.exr'
     # review output
     shot_quicktime_quick:
         definition: '@shot_root/4_REVIEW/QUICKDAILY/{Shot}_{Step}_BKD_{iteration}.mov'
@@ -442,7 +442,7 @@ paths:
     #
 
     asset_alembic_cache:
-        definition: '@asset_root/3_PUBLISH/caches/{name}.v{version}.abc'
+        definition: '@asset_root/3_PUBLISH/caches/{Asset}.{Step}.BKD.v{version}.abc'
 
 
     #
@@ -451,46 +451,46 @@ paths:
 
     # The location of WIP files
     photoshop_asset_work:
-        definition: '@asset_root/1_WORK/photoshop/{name}_BKD_v{version}.psd'
+        definition: '@asset_root/1_WORK/photoshop/{Asset}_{Step}_BKD_v{version}.psd'
     asset_work_area_photoshop:
         definition: '@asset_root/1_WORK/photoshop'
     # The location of backups of WIP files
     photoshop_asset_snapshot:
-        definition: '@asset_root/1_WORK/photoshop/snapshots/{name}_BKD_v{version}.{timestamp}.psd'
+        definition: '@asset_root/1_WORK/photoshop/snapshots/{Asset}_{Step}_BKD_v{version}.{timestamp}.psd'
     # The location of published files
     asset_publish_area_photoshop:
         definition: '@asset_root/3_PUBLISH/photoshop'
     photoshop_asset_publish:
-        definition: '@asset_root/3_PUBLISH/photoshop/{name}_BKD_v{version}.psd'
+        definition: '@asset_root/3_PUBLISH/photoshop/{Asset}_{Step}_BKD_v{version}.psd'
     # The location of the published images
     photoshop_asset_png_publish:
-        definition: '@asset_root/3_PUBLISH/photoshop/{name}_BKD_v{version}.png'
+        definition: '@asset_root/3_PUBLISH/photoshop/{Asset}_{Step}_BKD_v{version}.png'
     photoshop_asset_jpg_publish:
-        definition: '@asset_root/3_PUBLISH/photoshop/{name}_BKD_v{version}.jpg'
+        definition: '@asset_root/3_PUBLISH/photoshop/{Asset}_{Step}_BKD_v{version}.jpg'
     #
     # after effects
     #
 
     # The location of WIP files
     aftereffects_asset_work:
-        definition: '@asset_root/1_WORK/afx/{name}_BKD_v{version}.aep'
+        definition: '@asset_root/1_WORK/afx/{Asset}_{Step}_BKD_v{version}.aep'
     asset_work_area_aftereffects:
         definition: '@asset_root/1_WORK/afx'
     # The location of backups of WIP files
     aftereffects_asset_snapshot:
-        definition: '@asset_root/1_WORK/afx/snapshots/{name}_BKD_v{version}.{timestamp}.aep'
+        definition: '@asset_root/1_WORK/afx/snapshots/{Asset}_{Step}_BKD_v{version}.{timestamp}.aep'
     # The location of published files
     asset_publish_area_aftereffects:
         definition: '@asset_root/3_PUBLISH/afx'
     aftereffects_asset_publish:
-        definition: '@asset_root/3_PUBLISH/afx/{name}_BKD_v{version}.aep'
+        definition: '@asset_root/3_PUBLISH/afx/{Asset}_{Step}_BKD_v{version}.aep'
     aftereffects_asset_render_pub_mono:
-        definition: '@asset_root/3_PUBLISH/elements/{name}/v{version}/{width}x{height}/{Asset}_{name}_{afx.comp}_v{version}.{SEQ}.tif'
+        definition: '@asset_root/3_PUBLISH/elements/{Asset}/v{version}/{width}x{height}/{Asset}_{Step}_v{version}.{SEQ}.tif'
     # The following template uses {afx.mov.ext} this is a special key, that will be only there
     # in the beta to support different extensions on mac and windows, while using the same
     # output module (Lossless with Alpha)
     aftereffects_asset_render_movie:
-        definition: '@asset_root/review/{Asset}_{name}_{afx.comp}_BKD_v{version}.{afx.mov.ext}'
+        definition: '@asset_root/review/{Asset}_{Step}_BKD_v{version}.{afx.mov.ext}'
 
 
     #
@@ -511,13 +511,13 @@ paths:
         definition: '@asset_root/3_PUBLISH/maya'
     # The location of WIP files
     maya_asset_work:
-        definition: '@asset_root/1_WORK/maya/{name}.v{version}.{maya_extension}'
+        definition: '@asset_root/1_WORK/maya/{Asset}.{Step}.BKD.v{version}.{maya_extension}'
     # The location of backups of WIP files
     maya_asset_snapshot:
-        definition: '@asset_root/1_WORK/maya/snapshots/{name}.v{version}.{timestamp}.{maya_extension}'
+        definition: '@asset_root/1_WORK/maya/snapshots/{Asset}.{Step}.BKD.v{version}.{timestamp}.{maya_extension}'
     # The location of published maya files
     maya_asset_publish:
-        definition: '@asset_root/3_PUBLISH/maya/{name}.v{version}.{maya_extension}'
+        definition: '@asset_root/3_PUBLISH/maya/{Asset}.{Step}.BKD.v{version}.{maya_extension}'
 
 
     #
@@ -612,23 +612,23 @@ paths:
         definition: '@asset_root/publish'
     # outputs from the Shotgun Write Node for assets
     nuke_asset_render:
-        definition: '@asset_root/1_WORK/images/{name}/v{version}/{width}x{height}/{Asset}_{name}_{nuke.output}_v{version}.{SEQ}.exr'
+        definition: '@asset_root/1_WORK/nuke/renders/{Asset}/v{version}/{width}x{height}/{Asset}_{Step}_BKD_v{version}.{SEQ}.exr'
     nuke_asset_render_pub:
-        definition: '@asset_root/3_PUBLISH/elements/{name}/v{version}/{width}x{height}/{Asset}_{name}_{nuke.output}_v{version}.{SEQ}.exr'
+        definition: '@asset_root/3_PUBLISH/nuke/elements/{Asset}/v{version}/{width}x{height}/{Asset}_{Step}_BKD_v{version}.{SEQ}.exr'
     # review output
     nuke_asset_render_movie:
-        definition: '@asset_root/review/{Asset}_{name}_{nuke.output}_v{version}.mov'
+        definition: '@asset_root/review/{Asset}_{Step}_BKD_v{version}.mov'
     asset_quicktime_quick:
-        definition: '@asset_root/review/quickdaily/{Asset}_{name}_{iteration}.mov'
+        definition: '@asset_root/review/quickdaily/{Asset}_{Step}_BKD_{iteration}.mov'
     # The location of WIP script files
     nuke_asset_work:
-        definition: '@asset_root/1_WORK/nuke/{name}.v{version}.nk'
+        definition: '@asset_root/1_WORK/nuke/scripts/{Asset}_{Step}_BKD_v{version}.nk'
     # The location of backups of WIP files
     nuke_asset_snapshot:
-        definition: '@asset_root/1_WORK/nuke/snapshots/{name}.v{version}.{timestamp}.nk'
+        definition: '@asset_root/1_WORK/nuke/snapshots/{Asset}_{Step}_BKD_v{version}_{timestamp}.nk'
     # The location of published nuke script files
     nuke_asset_publish:
-        definition: '@asset_root/3_PUBLISH/nuke/{name}.v{version}.nk'
+        definition: '@asset_root/3_PUBLISH/nuke/scripts/{Asset}_{Step}_BKD_v{version}.nk'
 
     #
     # Alias
