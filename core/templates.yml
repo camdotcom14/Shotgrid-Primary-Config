@@ -300,7 +300,7 @@ paths:
         definition: '@shot_root/3_PUBLISH/maya'
     # The location of WIP files
     maya_shot_work:
-        definition: '@shot_root/1_WORK/maya/{Shot}.{Step}.BKD.v{version}.{maya_extension}'
+        definition: '@shot_root/1_WORK/maya/{Shot}.{Sequence}.{Step}.BKD.v{version}.{maya_extension}'
     # The location of backups of WIP files
     maya_shot_snapshot:
         definition: '@shot_root/1_WORK/maya/snapshots/{Shot}.{Step}.BKD.v{version}.{timestamp}.{maya_extension}'
@@ -410,7 +410,7 @@ paths:
         definition: '@shot_root/3_PUBLISH/nuke/scripts/{Shot}_{Step}_BKD_v{version}.nk'
     # write node outputs
     nuke_shot_render_mono_dpx:
-        definition: '@shot_root/1_WORK/nuke/renders/v{sg_client_version}/{Shot}_{Step}_BKD_v{sg_client_version}/{Shot}_{Step}_BKD_v{version}.{SEQ}.dpx'
+        definition: '@shot_root/1_WORK/nuke/renders/v{sg_client_version}/{Shot}_{Sequence}_{Step}_BKD_v{sg_client_version}/{Shot}_{Step}_BKD_v{version}.{SEQ}.dpx'
     nuke_shot_render_pub_mono_dpx:
         definition: '@shot_root/3_PUBLISH/nuke/renders/v{sg_client_version}/{Shot}_{Step}_BKD_v{sg_client_version}/{Shot}_{Step}_BKD_v{version}.{SEQ}.dpx'
     nuke_shot_render_stereo:
