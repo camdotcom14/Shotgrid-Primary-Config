@@ -167,7 +167,7 @@ paths:
 
     # The location of WIP files
     aftereffects_shot_work:
-        definition: '@shot_root/1_WORK/afx/{Project}_{Sequence}_{Shot}_{Step}_{name}_v{version}.aep'
+        definition: '@shot_root/1_WORK/afx/projects/{Project}_{Sequence}_{Shot}_{Step}_{name}_v{version}.aep'
     shot_work_area_aftereffects:
         definition: '@shot_root/1_WORK/afx'
     # The location of backups of WIP files
