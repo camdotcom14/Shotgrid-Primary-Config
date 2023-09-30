@@ -45,9 +45,6 @@ settings.tk-desktop.project:
     - "*Photoshop*"
     - "*After*"
     - "*Effects*"
-    name: Creative Tools
-  - matches:
-    - "*Hiero*"
     name: Editorial Tools
   - matches:
     - "*Alias*"

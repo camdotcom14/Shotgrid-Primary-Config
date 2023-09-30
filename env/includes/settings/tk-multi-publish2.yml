@@ -254,31 +254,6 @@ settings.tk-multi-publish2.nuke.shot_step:
 
 ################################################################################
 
-# ---- NukeStudio
-
-settings.tk-multi-publish2.nukestudio:
-  collector: "{self}/collector.py:{engine}/tk-multi-publish2/basic/collector.py"
-  collector_settings:
-      Work Template: hiero_project_work
-  publish_plugins:
-  - name: Publish to ShotGrid
-    hook: "{self}/publish_file.py"
-    settings: {}
-  - name: Upload for review
-    hook: "{self}/upload_version.py"
-    settings: {}
-  - name: Begin file versioning
-    hook: "{engine}/tk-multi-publish2/basic/nukestudio_start_version_control.py"
-    settings: {}
-  - name: Publish to ShotGrid
-    hook: "{self}/publish_file.py:{engine}/tk-multi-publish2/basic/nukestudio_publish_project.py"
-    settings:
-        Publish Template: hiero_project_publish
-  help_url: *help_url
-  location: "@apps.tk-multi-publish2.location"
-
-################################################################################
-
 # ---- Photoshop
 
 # asset step
