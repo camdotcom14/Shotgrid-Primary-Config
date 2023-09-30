@@ -39,7 +39,7 @@ keys:
         type: str
     sg_asset_type:
         type: str
-	shotgun_entity_type: Asset
+        shotgun_entity_type: Asset
         shotgun_field_name: Type
     Asset:
         type: str
