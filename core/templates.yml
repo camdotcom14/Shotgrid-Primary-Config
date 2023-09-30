@@ -288,7 +288,7 @@ paths:
         definition: '@shot_root/3_PUBLISH/nuke/scripts/{Project}_{Sequence}_{Shot}_{Step}_v{version}.nk'
     # write node outputs
     nuke_shot_render_mono_dpx:
-        definition: '@shot_root/1_WORK/nuke/renders/v{sg_client_version}/{Project}_{Sequence}_{Shot}_{Step}_v{version}/{Project}_{Sequence}_{Shot}_{Step}_{name}_v{version}.{SEQ}.dpx'
+        definition: '@shot_root/1_WORK/nuke/renders/{Project}_{Sequence}_{Shot}_{Step}_v{version}/{Project}_{Sequence}_{Shot}_{Step}_{name}_v{version}.{SEQ}.dpx'
     nuke_shot_render_pub_mono_dpx:
         definition: '@shot_root/3_PUBLISH/nuke/renders/{Project}_{Sequence}_{Shot}_{Step}_v{version}/{Shot}_{Step}_BKD_v{version}.{SEQ}.dpx'
     nuke_shot_render_stereo:
