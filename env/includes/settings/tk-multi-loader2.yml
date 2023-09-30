@@ -48,25 +48,6 @@ settings.tk-multi-loader2.3dsmax:
   <<: *settings_tk-multi-loader2_3dsmaxplus
   actions_hook: "{engine}/tk-multi-loader2/basic/scene_actions.py"
 
-
-# flame
-settings.tk-multi-loader2.flame:
-  actions_hook: '{engine}/tk-multi-loader2/flame_loader_actions.py'
-  action_mappings:
-    Flame Batch File: [load_setup]
-    Flame Quicktime: [load_clip]
-    Flame Render: [load_clip]
-    Flame OpenClip: [load_clip]
-    Photoshop Image: [load_clip]
-    Rendered Image: [load_clip]
-    Image: [load_clip]
-    Movie: [load_clip]
-    Texture: [load_clip]
-  entity_mappings:
-    Shot: [load_batch]
-    CutItem: [load_batch]
-  location: "@apps.tk-multi-loader2.location"
-
 # houdini
 settings.tk-multi-loader2.houdini:
   action_mappings:
@@ -95,27 +76,6 @@ settings.tk-multi-loader2.houdini:
     hierarchy: [entity, content]
   publish_filters: [["sg_status_list", "is_not", null]]
   location: "@apps.tk-multi-loader2.location"
-
-# mari
-settings.tk-multi-loader2.mari:
-  action_mappings:
-    Alembic Cache: [geometry_import]
-  entities:
-  - caption: Assets
-    entity_type: Asset
-    filters:
-    - [project, is, '{context.project}']
-    hierarchy: [sg_asset_type, code]
-    publish_filters: []
-  - caption: My Tasks
-    entity_type: Task
-    filters:
-    - [task_assignees, is, '{context.user}']
-    - [project, is, '{context.project}']
-    hierarchy: [entity, content]
-    publish_filters: []
-  title_name: Import
-  location: '@apps.tk-multi-loader2.location'
 
 # maya
 settings.tk-multi-loader2.maya:
@@ -294,27 +254,6 @@ settings.tk-multi-loader2.aftereffects:
   publish_filters: [["sg_status_list", "is_not", null]]
   location: "@apps.tk-multi-loader2.location"
 
-# motion builder
-settings.tk-multi-loader2.motionbuilder:
-  entities:
-  - caption: Assets
-    entity_type: Asset
-    filters:
-    - [project, is, '{context.project}']
-    hierarchy: [sg_asset_type, code]
-  - caption: Shots
-    entity_type: Shot
-    filters:
-    - [project, is, '{context.project}']
-    hierarchy: [sg_sequence, code]
-  - caption: My Tasks
-    entity_type: Task
-    filters:
-    - [task_assignees, is, '{context.user}']
-    - [project, is, '{context.project}']
-    hierarchy: [entity, content]
-  location: "@apps.tk-multi-loader2.location"
-
 # alias
 settings.tk-multi-loader2.alias:
   action_mappings:
@@ -327,7 +266,6 @@ settings.tk-multi-loader2.alias:
     Catpart File: [import, import_as_reference]
     Catproduct File: [import, import_as_reference]
     Fbx File: [import]
-    Motion Builder FBX: [import]
     Image: [texture_node]
     Photoshop Image: [texture_node]
     Tif File: [texture_node]
@@ -368,7 +306,6 @@ settings.tk-multi-loader2.vred:
     Jt File: [import, import_with_options, smart_reference]
     Catpart File: [import, import_with_options, smart_reference]
     Fbx File: [import, import_with_options, smart_reference]
-    Motion Builder FBX: [import, import_with_options, smart_reference]
     VRED Scene: [import, import_with_options, smart_reference]
     Osb File: [import, import_with_options, smart_reference]
     Image: [import_sceneplate]

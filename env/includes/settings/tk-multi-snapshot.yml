@@ -40,15 +40,6 @@ settings.tk-multi-snapshot.3dsmax.shot_step:
 
 ################################################################################
 
-# ---- Hiero
-
-settings.tk-multi-snapshot.hiero:
-  template_snapshot: hiero_project_snapshot
-  template_work: hiero_project_work
-  location: "@apps.tk-multi-snapshot.location"
-
-################################################################################
-
 # ---- Houdini
 
 # asset step
@@ -130,17 +121,3 @@ settings.tk-multi-snapshot.aftereffects.shot_step:
   location: "@apps.tk-multi-snapshot.location"
 
 ################################################################################
-
-# ---- Motion Builder
-
-# asset step
-settings.tk-multi-snapshot.motionbuilder.asset_step:
-  template_snapshot: mobu_asset_snapshot
-  template_work: mobu_asset_work
-  location: "@apps.tk-multi-snapshot.location"
-
-# shot step
-settings.tk-multi-snapshot.motionbuilder.shot_step:
-  template_snapshot: mobu_shot_snapshot
-  template_work: mobu_shot_work
-  location: "@apps.tk-multi-snapshot.location"

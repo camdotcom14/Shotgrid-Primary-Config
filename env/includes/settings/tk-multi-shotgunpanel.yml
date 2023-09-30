@@ -182,31 +182,6 @@ settings.tk-multi-shotgunpanel.nukestudio:
       filters: {}
   location: "@apps.tk-multi-shotgunpanel.location"
 
-# hiero
-
-settings.tk-multi-shotgunpanel.hiero:
-  action_mappings:
-    PublishedFile:
-    - actions: [clip_import]
-      filters: {published_file_type: Flame Render}
-    - actions: [clip_import]
-      filters: {published_file_type: Flame Quicktime}
-    - actions: [clip_import]
-      filters: {published_file_type: Image}
-    - actions: [clip_import]
-      filters: {published_file_type: Movie}
-    - actions: [clip_import]
-      filters: {published_file_type: Rendered Image}
-    - actions: [publish_clipboard]
-      filters: {}
-    Task:
-    - actions: [assign_task, task_to_ip]
-      filters: {}
-    Version:
-    - actions: [quicktime_clipboard, sequence_clipboard, add_to_playlist]
-      filters: {}
-  location: "@apps.tk-multi-shotgunpanel.location"
-
 # photoshop
 settings.tk-multi-shotgunpanel.photoshop:
   actions_hook: "{self}/general_actions.py"
@@ -277,8 +252,6 @@ settings.tk-multi-shotgunpanel.alias:
       filters: {published_file_type: Catproduct File}
     - actions: [import]
       filters: {published_file_type: Fbx File}
-    - actions: [import]
-      filters: {published_file_type: Motion Builder FBX}
     - actions: [texture_node]
       filters: {published_file_type: Image}
     - actions: [texture_node]
@@ -326,8 +299,6 @@ settings.tk-multi-shotgunpanel.vred:
       filters: {published_file_type: Catpart File}
     - actions: [import]
       filters: {published_file_type: Fbx File}
-    - actions: [import]
-      filters: {published_file_type: Motion Builder FBX}
     - actions: [import]
       filters: {published_file_type: VRED Scene}
     - actions: [import]
