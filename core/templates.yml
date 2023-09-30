@@ -40,7 +40,7 @@ keys:
     sg_asset_type:
         type: str
         shotgun_entity_type: Asset
-        shotgun_field_name: Type
+        shotgun_field_name: sg_asset_type
     Asset:
         type: str
     name:
