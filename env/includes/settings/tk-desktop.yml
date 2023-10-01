@@ -45,4 +45,5 @@ settings.tk-desktop.project:
     - "*Photoshop*"
     - "*After*"
     - "*Effects*"
+    name: Editorial Tools
   location: "@engines.tk-desktop.location"
