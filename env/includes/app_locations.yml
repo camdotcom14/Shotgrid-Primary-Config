@@ -100,10 +100,6 @@ apps.tk-shotgun-launchpublish.location:
   type: app_store
   name: tk-shotgun-launchpublish
   version: v0.5.1
-apps.tk-shotgun-launchvredreview.location:
-  type: app_store
-  name: tk-shotgun-launchvredreview
-  version: v1.1.4
 apps.tk-houdini-alembicnode.location:
   type: app_store
   name: tk-houdini-alembicnode

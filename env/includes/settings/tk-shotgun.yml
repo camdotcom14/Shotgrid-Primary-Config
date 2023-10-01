@@ -19,7 +19,6 @@ includes:
 - ./tk-shotgun-folders.yml
 - ./tk-shotgun-launchfolder.yml
 - ./tk-shotgun-launchpublish.yml
-- ./tk-shotgun-launchvredreview.yml
 
 ################################################################################
 
@@ -44,8 +43,6 @@ settings.tk-shotgun.asset_step:
 
 # playlist
 settings.tk-shotgun.playlist:
-  apps:
-    tk-shotgun-launchvredreview: "@settings.tk-shotgun-launchvredreview"
   location: "@engines.tk-shotgun.location"
 
 # project
@@ -99,5 +96,4 @@ settings.tk-shotgun.version:
   apps:
     tk-multi-screeningroom: "@settings.tk-multi-screeningroom.rv"
     tk-shotgun-launchpublish: "@settings.tk-shotgun-launchpublish"
-    tk-shotgun-launchvredreview: "@settings.tk-shotgun-launchvredreview"
   location: "@engines.tk-shotgun.location"
