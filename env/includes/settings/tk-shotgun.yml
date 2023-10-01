@@ -43,6 +43,7 @@ settings.tk-shotgun.asset_step:
 
 # playlist
 settings.tk-shotgun.playlist:
+  apps:
   location: "@engines.tk-shotgun.location"
 
 # project
