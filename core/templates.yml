@@ -101,31 +101,6 @@ keys:
         default: ma
         alias: extension
 
-    # needed by the Alias import as reference functionality
-    alias.extension:
-        type: str
-        filter_by: alphanumeric
-
-    # represents the optional render pass for frames written by VRED
-    vred.render_pass:
-        type: str
-        filter_by: alphanumeric
-
-    # represents the image extension for frames written by VRED
-    vred.render_extension:
-        type: str
-        choices:
-            png: PNG Image
-            exr: EXR Image
-        default: png
-
-    # Represents a frame sequence exported from VRED
-    vred.frame:
-        type: sequence
-        format_spec: "05"
-        alias: SEQ
-
-
 #
 # The paths section contains all the the key locations where files are to be stored
 # by Sgtk Apps. Each path is made up of several keys (like {version} or {shot}) and
