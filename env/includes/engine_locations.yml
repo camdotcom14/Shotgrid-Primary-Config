@@ -26,10 +26,6 @@ engines.tk-aftereffects.location:
   type: app_store
   name: tk-aftereffects
   version: v0.3.3
-engines.tk-alias.location:
-  type: app_store
-  name: tk-alias
-  version: v3.0.1
 engines.tk-desktop.location:
   type: app_store
   name: tk-desktop
@@ -62,7 +58,3 @@ engines.tk-shotgun.location:
   type: app_store
   name: tk-shotgun
   version: v0.10.2
-engines.tk-vred.location:
-  type: app_store
-  name: tk-vred
-  version: v3.0.0
