@@ -45,7 +45,4 @@ settings.tk-desktop.project:
     - "*Photoshop*"
     - "*After*"
     - "*Effects*"
-    name: Editorial Tools
-  - matches:
-    name: Automotive Tools
   location: "@engines.tk-desktop.location"
